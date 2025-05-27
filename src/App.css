@@ -5,20 +5,20 @@
   text-align: center;
 }
 
-.card-header.VSMT_card_header {
+.card-header.myapp_card_header {
   background-color: lightblue; 
   font-weight: bold;
 }
 
-.card-header.VSMT_card_header_2 {
+.card-header.myapp_card_header_2 {
   background-color: lightgoldenrodyellow; 
   font-weight: bold;
 }
 
-.card-body.VSMT_card_body {
+.card-body.myapp_card_body {
   background-color: lightgray;
   padding: 0;
 }
 
-.card.VSMT_card {
+.card.myapp_card {
 }

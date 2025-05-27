@@ -11,11 +11,11 @@ import './App.css';
 function Navigator({toggleWord}) {
   return (
     <>
-      <Card className="VSMT_card" style={{"height":"45vh"}}  >
-        <Card.Header className="VSMT_card_header">
+      <Card className="myapp_card" style={{"height":"45vh"}}  >
+        <Card.Header className="myapp_card_header">
             Navigator
         </Card.Header>
-        <Card.Body className="VSMT_card_body">
+        <Card.Body className="myapp_card_body">
           <div>My Value Sets</div>
           <div>Search</div> 
           <div>New Value Set</div> 
@@ -39,98 +39,84 @@ function ChangeWordButton({toggleWord}) {
 
 function RecentActivity() {
   return (
-    <Card className="VSMT_card" style={{"height":"50vh"}}  >
-      <Card.Header className="VSMT_card_header">
+    <Card className="myapp_card" style={{"height":"50vh"}}  >
+      <Card.Header className="myapp_card_header">
         History
       </Card.Header>
-      <Card.Body className='VSMT_card_body'>
+      <Card.Body className='myapp_card_body'>
         <div>Nothing to see here ..</div>           
       </Card.Body>
     </Card>
   )
 }
 
-function ValueSetView({theWord}) {
+function ValueSetView({theMessage, setTheMessage, theWord}) {
   return (
-    <Card className="VSMT_card" style={{"height":"95vh"}}  >
+    <Card className="myapp_card" style={{"height":"95vh"}}  >
       {/* <Card.Body> */}
-        <Card.Header className="VSMT_card_header">
+        <Card.Header className="myapp_card_header">
             Value Set
         </Card.Header>
         <Card.Body>
           <PanelGroup autoSaveId="example" direction="horizontal">
-            <Panel defaultSize={25}>
-              <Definition theWord={theWord} />
+            <Panel>
+              <Expansion defaultSize={25}  setTheMessage={setTheMessage} theWord={theWord} />
             </Panel>
             <PanelResizeHandle style={{"width":"5px", "backgroundColor":"grey"}} />
-            <Panel>
-              <Expansion defaultSize={25} />
-            </Panel>
-            <PanelResizeHandle />
             <Panel defaultSize={25}>
-              <ConceptDetail />
-            </Panel>
-            <PanelResizeHandle />
-            <Panel defaultSize={25}>
-              <ConceptBrowser />
+              <ConceptDetail theMessage={theMessage}/>
             </Panel>
           </PanelGroup>
-        
         </Card.Body>
       {/* </Card.Body> */}
     </Card>
   )
 }
 
-function Definition({theWord}) {
+function Expansion({setTheMessage, theWord}) {
+  function pastefunction() {
+    fetch('http://localhost:5001/health').then(res => res.json()).then(data => {setTheMessage(data)});
+	}
   return(
-    // <Card className="VSMT_card" style={{"height":"88vh", "width":"30vw"}}>
-    <Card className="VSMT_card" style={{"height":"88vh"}}>
-      <Card.Header className="VSMT_card_header_2">
-         Definition  {theWord}
+    <Card className="myapp_card" style={{"height":"88vh"}}>
+      <Card.Header className="myapp_card_header_2">
+        Expansion {theWord}
       </Card.Header>
       <Card.Body>
-        The word is: {theWord}
+        <textarea placeholder={"Paste content here..."}
+            onPaste={pastefunction}
+            style={{ padding: '10px', 
+                fontSize: "20px", 
+                resize:"none",
+                width:"90%",
+                height:"90%",
+                minWidth:"90%",
+                maxWidth:"90%" }}>
+        </textarea>
       </Card.Body>
     </Card>
   )
 }
 
-function Expansion() {
-  return(
-    // <Card className="VSMT_card" style={{"height":"88vh", "width":"40vw"}}>
-    <Card className="VSMT_card" style={{"height":"88vh"}}>
-      <Card.Header className="VSMT_card_header_2">
-        Expansion
-      </Card.Header>
-    </Card>
-  )
-}
 
-function ConceptBrowser() {
-  return(
-    // <Card className="VSMT_card" style={{"height":"88vh", "width":"5vw"}}>
-    <Card className="VSMT_card" style={{"height":"88vh"}}>
-      <Card.Header className="VSMT_card_header_2">
-        Browser
-      </Card.Header>
-    </Card>
-  )
-}
 
-function ConceptDetail() {
+function ConceptDetail({theMessage}) {
   return(
-    // <Card className="VSMT_card" style={{"height":"88vh", "width":"5vw"}}>
-    <Card className="VSMT_card" style={{"height":"88vh"}}>
-      <Card.Header className="VSMT_card_header_2">
+    // <Card className="myapp_card" style={{"height":"88vh", "width":"5vw"}}>
+    <Card className="myapp_card" style={{"height":"88vh"}}>
+      <Card.Header className="myapp_card_header_2">
         Detail
       </Card.Header>
+      <Card.Body>
+        <div> {theMessage} </div>
+      </Card.Body>
     </Card>
   )
 }
 
 function App() {
   const [theWord, setTheWord] = useState("hello")
+  const [theMessage, setTheMessage] = useState("not set yet!");
   function toggleWord() {
     if (theWord=="hello") {setTheWord("gosh!")}
     else {setTheWord("hello")}
@@ -144,7 +130,7 @@ function App() {
             <RecentActivity />
           </Col>
           <Col xs={10}>
-            <ValueSetView theWord={theWord} />
+            <ValueSetView theMessage={theMessage} setTheMessage={setTheMessage} theWord={theWord} />
           </Col>
         </Row>
       </Container>
