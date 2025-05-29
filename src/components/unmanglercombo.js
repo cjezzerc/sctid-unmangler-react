@@ -5,8 +5,8 @@ import DataEntryPanel from './dataentrypanel';
 import ResultsPanel from './resultspanel';
 
 export default function UnmanglerCombo({
-    theMessage, 
-    setTheMessage, 
+    analysisResults, 
+    setAnalysisResults, 
     theWord, 
     toggleWord,
     enteredData,
@@ -23,7 +23,7 @@ export default function UnmanglerCombo({
             <Panel>
               <DataEntryPanel 
                 defaultSize={25}  
-                setTheMessage={setTheMessage} 
+                setAnalysisResults={setAnalysisResults} 
                 theWord={theWord} 
                 toggleWord={toggleWord} 
                 enteredData={enteredData}
@@ -32,7 +32,9 @@ export default function UnmanglerCombo({
             </Panel>
             <PanelResizeHandle style={{"width":"5px", "backgroundColor":"grey"}} />
             <Panel defaultSize={25}>
-              <ResultsPanel theMessage={theMessage}
+              <ResultsPanel 
+                analysisResults={analysisResults}
+                enteredData={enteredData}
               />
             </Panel>
           </PanelGroup>

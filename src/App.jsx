@@ -10,7 +10,7 @@ import UnmanglerCombo from './components/unmanglercombo';
 function App() {
   
   const [theWord, setTheWord] = useState("hello")
-  const [theMessage, setTheMessage] = useState("not set yet!");
+  const [analysisResults, setAnalysisResults] = useState({"check_results":[]});
   const [enteredData, setEnteredData] = useState("Enter your data here!")
 
   function toggleWord() {
@@ -24,8 +24,8 @@ function App() {
         <Row style={{"height":"95vh"}}>        
           <Col xs={12}>
             <UnmanglerCombo 
-              theMessage={theMessage} 
-              setTheMessage={setTheMessage} 
+              analysisResults={analysisResults} 
+              setAnalysisResults={setAnalysisResults} 
               theWord={theWord} 
               toggleWord={toggleWord}
               enteredData={enteredData}

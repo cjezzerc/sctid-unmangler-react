@@ -3,7 +3,7 @@ import {Card,Form, Button} from 'react-bootstrap';
 import ChangeWordButton from './changewordbutton';
 
 export default function DataEntryPanel({
-    setTheMessage, 
+    setAnalysisResults, 
     theWord, 
     toggleWord,  
     enteredData,
@@ -11,9 +11,16 @@ export default function DataEntryPanel({
     {
   
   function pastefunction() {
-    fetch('http://localhost:8000/time_please')
+    fetch('http://localhost:8000/receive_entered_data', {
+      method:"post",
+      headers: {
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify({"text":enteredData})
+    }
+  )
     .then(res => res.json())
-    .then(data => {setTheMessage(data)});
+    .then(data => {setAnalysisResults(data)});
 	}
   
   return(
@@ -25,7 +32,12 @@ export default function DataEntryPanel({
         <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Paste in this box</Form.Label>
-            <Form.Control as="textarea" rows={3} defaultValue={enteredData}/>
+            <Form.Control 
+              as="textarea" 
+              rows={3} 
+              defaultValue={enteredData}
+              onChange={(event) => setEnteredData(event.target.value)}
+              />
           </Form.Group>
         </Form>
         <Button variant="primary" onClick={pastefunction} >Primary</Button>
