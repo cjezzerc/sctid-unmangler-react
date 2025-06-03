@@ -22,3 +22,19 @@
 
 .card.myapp_card {
 }
+
+.myapp_button {
+  margin:10px;
+}
+
+.myapp_toggle:checked {
+  background-color: red;
+}
+
+.myapp_toggle:not(:checked) {
+  background-color: rgb(160,160,160);
+}
+
+.form-check-input[type="checkbox"] {
+  border-width: 3px;
+}

@@ -7,7 +7,6 @@ import ResultsPanel from './resultspanel';
 export default function UnmanglerCombo({
     analysisResults, 
     setAnalysisResults, 
-    theWord, 
     toggleWord,
     enteredData,
     setEnteredData}) 
@@ -24,7 +23,6 @@ export default function UnmanglerCombo({
               <DataEntryPanel 
                 defaultSize={25}  
                 setAnalysisResults={setAnalysisResults} 
-                theWord={theWord} 
                 toggleWord={toggleWord} 
                 enteredData={enteredData}
                 setEnteredData={setEnteredData}
@@ -39,7 +37,6 @@ export default function UnmanglerCombo({
             </Panel>
           </PanelGroup>
         </Card.Body>
-      {/* </Card.Body> */}
     </Card>
   )
 }

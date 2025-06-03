@@ -9,14 +9,17 @@ import UnmanglerCombo from './components/unmanglercombo';
 
 function App() {
   
-  const [theWord, setTheWord] = useState("hello")
   const [analysisResults, setAnalysisResults] = useState({"check_results":[]});
-  const [enteredData, setEnteredData] = useState("Enter your data here!")
+  const [enteredData, setEnteredData] = useState(
+    "37331000000100	| Comment note (record artifact) |\n"+
+    "703421000	Temperature (observable entity)\n"+
+    "1097811000000100	Arterial oxygen saturation breathing room air at rest (observable entity)\n"+
+    "86290005	Respiratory rate (observable entity)\n"+
+    "271637005	Pulse irregularly irregular (finding)\n"+
+    "37331000000100	Comment note (record artifact)`"
+  )
 
-  function toggleWord() {
-    if (theWord=="hello") {setTheWord("gosh!")}
-    else {setTheWord("hello")}
-  }
+ 
   
   return (
     <>
@@ -26,8 +29,6 @@ function App() {
             <UnmanglerCombo 
               analysisResults={analysisResults} 
               setAnalysisResults={setAnalysisResults} 
-              theWord={theWord} 
-              toggleWord={toggleWord}
               enteredData={enteredData}
               setEnteredData={setEnteredData}
               />

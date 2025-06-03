@@ -1,30 +1,68 @@
-import {Card} from 'react-bootstrap';
+import { useState } from 'react';
 
-export default function ResultsPanel({analysisResults, enteredData}) {
-  const DisplayData=analysisResults.check_results.map(
+import {Card, Table, Row, Col} from 'react-bootstrap';
+import {ResultsButtons} from './resultsbuttons';
+
+export default function ResultsPanel({analysisResults}) {
+
+  const [flags, setFlags] = useState({
+  "show_rest_of_line":false,
+  "only_show_mangled":false,
+  "concepts_to_show":"all" // "all"|"invalid"|"mangled"
+  })
+  const yes_no={true:"YES!", false:"N"}
+  const table_results_data=analysisResults.check_results.map(
         (data)=>{
-            return(
-                <tr key={data.id}>
-                    <td>{data.sctid_provided}</td>
-                    <td>{JSON.stringify(data.validity)}</td>
-                    <td>{JSON.stringify(data.mangling_suspected)}</td>
-                    <td>{data.reconstructed_concept_ID}</td>
-                </tr>
-            )
+            if (  (flags.concepts_to_show=="all") ||
+                  ((!data.validity) && flags.concepts_to_show=="invalid") ||
+                  (data.mangling_suspected && flags.concepts_to_show=="mangled")
+            ) {     
+              return(
+                  <tr key={data.id}>
+                      <td>{data.sctid_provided}</td>
+                      {flags.show_rest_of_line &&
+                        <td>{data.rest_of_line}</td>
+                      }
+                      <td>{yes_no[!data.validity]}</td>
+                      <td>{yes_no[data.mangling_suspected]}</td>
+                      <td>{data.reconstructed_concept_ID}</td>
+                      <td>{data.reconstructed_description_ID}</td>
+                  </tr>
+              )
+            }           
         }
     )
+
+    const table_headers = (() => 
+       <tr> 
+            <th>Code(SCTID)</th>
+            {flags.show_rest_of_line &&
+              <th>Rest of input row</th>
+            }
+            <th>Invalid code?</th>
+            <th>Mangling possible?</th>
+            <th>Reconstructed Concept Id</th>
+            <th>Reconstructed Description Id</th>
+        </tr>
+    )() 
+
   return(
-    <Card className="myapp_card" style={{"height":"88vh"}}>
+    <Card className="myapp_card" style={{"height":"88vh", "overflow":"auto"}}>
       <Card.Header className="myapp_card_header_2">
-        Results
+        Results {JSON.stringify(flags.show_rest_of_line)}
       </Card.Header>
       <Card.Body>
-        <table>
+        <Row className="align-items-center" style={{margin: "3px" }}>
+          <ResultsButtons setFlags={setFlags} flags={flags}></ResultsButtons>
+        </Row>
+        <Table striped bordered responsive>
+          <thead>
+            {table_headers}
+          </thead>
           <tbody>
-          <tr><td>hello</td><td></td></tr>
-          {DisplayData}
+            {table_results_data}
           </tbody>
-        </table>
+        </Table>
       </Card.Body>
     </Card>
   )

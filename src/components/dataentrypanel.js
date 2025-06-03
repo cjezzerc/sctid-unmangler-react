@@ -1,11 +1,8 @@
 import {Card,Form, Button} from 'react-bootstrap';
 
-import ChangeWordButton from './changewordbutton';
 
 export default function DataEntryPanel({
     setAnalysisResults, 
-    theWord, 
-    toggleWord,  
     enteredData,
     setEnteredData}) 
     {
@@ -24,9 +21,9 @@ export default function DataEntryPanel({
 	}
   
   return(
-    <Card className="myapp_card" style={{"height":"88vh"}}>
+    <Card className="myapp_card" style={{"height":"88vh", "overflow":"auto"}}>
       <Card.Header className="myapp_card_header_2">
-        Data entry ({theWord})
+        Data entry
       </Card.Header>
       <Card.Body>
         <Form>
@@ -34,14 +31,14 @@ export default function DataEntryPanel({
             <Form.Label>Paste in this box</Form.Label>
             <Form.Control 
               as="textarea" 
-              rows={3} 
+              rows={20} 
               defaultValue={enteredData}
               onChange={(event) => setEnteredData(event.target.value)}
               />
           </Form.Group>
         </Form>
-        <Button variant="primary" onClick={pastefunction} >Primary</Button>
-        <ChangeWordButton  toggleWord={toggleWord}></ChangeWordButton>
+        <Button variant="primary" onClick={pastefunction} >Check codes</Button>
+ 
       </Card.Body>
     </Card>
   )
