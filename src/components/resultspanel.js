@@ -26,6 +26,7 @@ export default function ResultsPanel({analysisResults}) {
                       <td>{yes_no[!data.validity]}</td>
                       <td>{yes_no[data.mangling_suspected]}</td>
                       <td>{data.reconstructed_concept_ID}</td>
+                      <td>{data.RC_preferred_term}</td>
                       <td>{data.reconstructed_description_ID}</td>
                   </tr>
               )
@@ -42,6 +43,7 @@ export default function ResultsPanel({analysisResults}) {
             <th>Invalid code?</th>
             <th>Mangling possible?</th>
             <th>Reconstructed Concept Id</th>
+            <th>Reconstructed Concept Id PT</th>
             <th>Reconstructed Description Id</th>
         </tr>
     )() 
