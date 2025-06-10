@@ -16,7 +16,10 @@ function App() {
     "1097811000000100	Arterial oxygen saturation breathing room air at rest (observable entity)\n"+
     "86290005	Respiratory rate (observable entity)\n"+
     "271637005	Pulse irregularly irregular (finding)\n"+
-    "37331000000100	Comment note (record artifact)`"
+    "37331000000100	Comment note (record artifact)\n"+
+    "10760821000119100\n"+
+    "900000000000497000\n"+
+    "12064601000001100"
   )
 
  
