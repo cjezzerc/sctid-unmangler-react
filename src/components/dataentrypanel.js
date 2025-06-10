@@ -8,7 +8,7 @@ export default function DataEntryPanel({
     {
   
   function pastefunction() {
-    fetch('http://localhost:8000/receive_entered_data', {
+    fetch('http://localhost:8000/receive_entered_data_new', {
       method:"post",
       headers: {
         "Content-Type":"application/json"

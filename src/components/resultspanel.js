@@ -11,23 +11,47 @@ export default function ResultsPanel({analysisResults}) {
   "concepts_to_show":"all" // "all"|"invalid"|"mangled"
   })
   const yes_no={true:"YES!", false:"N"}
+  // const table_results_data=analysisResults.check_results.map(
+  //       (data)=>{
+  //           if (  (flags.concepts_to_show=="all") ||
+  //                 ((!data.validity) && flags.concepts_to_show=="invalid") ||
+  //                 (data.mangling_suspected && flags.concepts_to_show=="mangled")
+  //           ) {     
+  //             return(
+  //                 <tr key={data.id}>
+  //                     <td>{data.sctid_provided}</td>
+  //                     {flags.show_rest_of_line &&
+  //                       <td>{data.rest_of_line}</td>
+  //                     }
+  //                     <td>{yes_no[!data.validity]}</td>
+  //                     <td>{yes_no[data.mangling_suspected]}</td>
+  //                     <td>{data.reconstructed_concept_ID}</td>
+  //                     <td>{data.RC_preferred_term}</td>
+  //                     <td>{data.reconstructed_description_ID}</td>
+  //                 </tr>
+  //             )
+  //           }           
+  //       }
+  //   )
+
   const table_results_data=analysisResults.check_results.map(
         (data)=>{
             if (  (flags.concepts_to_show=="all") ||
-                  ((!data.validity) && flags.concepts_to_show=="invalid") ||
-                  (data.mangling_suspected && flags.concepts_to_show=="mangled")
+                  ((!data.corruption_analysis.validity) && flags.concepts_to_show=="invalid") ||
+                  (data.corruption_analysis.outcome_code=="OutcomeCodes.POSSIBLE_CORRUPTION" && flags.concepts_to_show=="mangled")
             ) {     
               return(
                   <tr key={data.id}>
-                      <td>{data.sctid_provided}</td>
+                      <td>{data.corruption_analysis.sctid_provided}</td>
                       {flags.show_rest_of_line &&
-                        <td>{data.rest_of_line}</td>
+                        <td>{data.other_data.rest_of_line}</td>
                       }
-                      <td>{yes_no[!data.validity]}</td>
-                      <td>{yes_no[data.mangling_suspected]}</td>
-                      <td>{data.reconstructed_concept_ID}</td>
-                      <td>{data.RC_preferred_term}</td>
-                      <td>{data.reconstructed_description_ID}</td>
+                      <td>{yes_no[!data.corruption_analysis.validity]}</td>
+                      <td>{data.corruption_analysis.outcome_code}</td>
+                      <td>{data.corruption_analysis.r_cid}</td>
+                      <td>{data.corruption_analysis.r_cid_pt}</td>
+                      <td>{data.corruption_analysis.r_did}</td>
+                      <td>{data.corruption_analysis.r_did_term}</td>
                   </tr>
               )
             }           
@@ -45,6 +69,7 @@ export default function ResultsPanel({analysisResults}) {
             <th>Reconstructed Concept Id</th>
             <th>Reconstructed Concept Id PT</th>
             <th>Reconstructed Description Id</th>
+            <th>Reconstructed Description Term</th>
         </tr>
     )() 
 
