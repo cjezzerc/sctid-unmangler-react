@@ -47,7 +47,7 @@ export default function ResultsPanel({analysisResults}) {
                         <td>{data.other_data.rest_of_line}</td>
                       }
                       <td>{yes_no[!data.corruption_analysis.validity]}</td>
-                      <td>{data.corruption_analysis.outcome_code}</td>
+                      <td>{data.corruption_analysis.outcome_code.replace("OutcomeCodes.","")}</td>
                       <td>{data.corruption_analysis.r_cid}</td>
                       <td>{data.corruption_analysis.r_cid_pt}</td>
                       <td>{data.corruption_analysis.r_did}</td>

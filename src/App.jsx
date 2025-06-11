@@ -11,19 +11,23 @@ function App() {
   
   const [analysisResults, setAnalysisResults] = useState({"check_results":[]});
   const [enteredData, setEnteredData] = useState(
-    "37331000000100	| Comment note (record artifact) |\n"+
-    "703421000	Temperature (observable entity)\n"+
-    "1097811000000100	Arterial oxygen saturation breathing room air at rest (observable entity)\n"+
-    "86290005	Respiratory rate (observable entity)\n"+
-    "271637005	Pulse irregularly irregular (finding)\n"+
-    "37331000000100	Comment note (record artifact)\n"+
-    "10760821000119100\n"+
-    "900000000000497000\n"+
-    "12064601000001100"
+`1097811000000100	Arterial oxygen saturation breathing room air at rest (observable entity)
+12064601000001100
+1089881000119100        Minimal keratinized residual ridge mucosa
+11750801000001100
+10760821000119100
+900000000000497000
+SNO63700574768824
+37331000000100	| Comment note (record artifact) |
+703421000	Temperature (observable entity)
+15366271000001108
+8388100084567440 (1Made up; 6 digits; penult digit not 1 or 0)
+4036431000001100 Made up; not valid; reconstruction does not exist(16)
+4736431000001100 Made up; valid but not in release; R-CID is the same(16)
+29760821000119100  Made up; Valid but not in release; R-CID is same
+28760821000119100  Made up; not Valid ; R-CID is same`
   )
 
- 
-  
   return (
     <>
       <Container fluid className="bg-light">
