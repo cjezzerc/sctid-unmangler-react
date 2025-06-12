@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import {Row, Col} from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
-import ToggleButton from 'react-bootstrap/ToggleButton';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import { Row, Col } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import ToggleButton from "react-bootstrap/ToggleButton";
+import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 
 // function toggleFlag(flag, flags, setFlags) {
 //   setFlags({
@@ -20,11 +20,11 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 //   }
 
 //   return(
-//     <Button variant="secondary" className="myapp_button"  onClick={handleClick}> 
-//       {!flags.show_rest_of_line && 
+//     <Button variant="secondary" className="myapp_button"  onClick={handleClick}>
+//       {!flags.show_rest_of_line &&
 //         "Show rest of line"
 //       }
-//       {flags.show_rest_of_line && 
+//       {flags.show_rest_of_line &&
 //         "Hide rest of line"
 //       }
 //     </Button>
@@ -50,80 +50,97 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 //     </ToggleButtonGroup>
 //   );
 // }
-function ConceptsToShowButtons({setFlags, flags}) {
+function ConceptsToShowButtons({ setFlags, flags }) {
   function handleChange(event) {
-    setFlags({...flags, "concepts_to_show":event.target.value})
-    }
-  
+    setFlags({ ...flags, concepts_to_show: event.target.value });
+  }
+
   return (
-      <Form.Group  onChange={handleChange} style={{border:"1px solid black", borderRadius:"0.25em", padding:"7px"}}>
-          <Form.Check
-            inline
-            label="All"
-            name="group1"
-            type={"checkbox"}
-            checked={flags.concepts_to_show=="all"}
-            id={"all"}
-            value={"all"}
-            onChange={handleChange}
-          />
-          <Form.Check
-            inline
-            label="Only invalid"
-            name="group1"
-            type={"checkbox"}
-            checked={flags.concepts_to_show=="invalid"}
-            id={"invalid"}
-            value={"invalid"}
-            onChange={handleChange}
-          />
-          <Form.Check
-            inline
-            label="Only mangled"
-            name="group1"
-            type={"checkbox"}
-            checked={flags.concepts_to_show=="mangled"}
-            id={"mangled"}
-            value={"mangled"}
-            onChange={handleChange}
-          />
+    <Form.Group
+      onChange={handleChange}
+      style={{
+        border: "1px solid black",
+        borderRadius: "0.25em",
+        padding: "7px",
+      }}
+    >
+      <Form.Check
+        inline
+        label="Only corrupted"
+        name="group1"
+        type={"checkbox"}
+        checked={flags.concepts_to_show == "mangled_non_silent"}
+        id={"mangled_non_silent"}
+        value={"mangled_non_silent"}
+        onChange={handleChange}
+      />
+      <Form.Check
+        inline
+        label="Only corrupted (show silent)"
+        name="group1"
+        type={"checkbox"}
+        checked={flags.concepts_to_show == "mangled"}
+        id={"mangled"}
+        value={"mangled"}
+        onChange={handleChange}
+      />
+      <Form.Check
+        inline
+        label="Only invalid"
+        name="group1"
+        type={"checkbox"}
+        checked={flags.concepts_to_show == "invalid"}
+        id={"invalid"}
+        value={"invalid"}
+        onChange={handleChange}
+      />
+      <Form.Check
+        inline
+        label="All"
+        name="group1"
+        type={"checkbox"}
+        checked={flags.concepts_to_show == "all"}
+        id={"all"}
+        value={"all"}
+        onChange={handleChange}
+      />
     </Form.Group>
   );
 }
 
-export function RestOfLineSwitch({setFlags, flags}) {
-
+export function RestOfLineSwitch({ setFlags, flags }) {
   function handleClick(event) {
-    setFlags({...flags, "show_rest_of_line":event.target.checked})
+    setFlags({ ...flags, show_rest_of_line: event.target.checked });
   }
-  
+
   return (
-      <Form.Check 
-        type="checkbox"
-        id="custom-switch"
-        label="Show rest of input row"
-        defaultChecked={flags.show_rest_of_line}
-        onClick={handleClick}
-      />
+    <Form.Check
+      type="checkbox"
+      id="custom-switch"
+      label="Show rest of input line"
+      defaultChecked={flags.show_rest_of_line}
+      onClick={handleClick}
+    />
   );
 }
 
-
-export function ResultsButtons({setFlags, flags}) {
+export function ResultsButtons({ setFlags, flags }) {
   return (
     <Form>
       <Row className="align-items-center">
         <Col xs="auto">
-          <ConceptsToShowButtons setFlags={setFlags} flags={flags}></ConceptsToShowButtons>
+          <ConceptsToShowButtons
+            setFlags={setFlags}
+            flags={flags}
+          ></ConceptsToShowButtons>
         </Col>
         <Col xs="auto">
-          <RestOfLineSwitch setFlags={setFlags} flags={flags}></RestOfLineSwitch>
+          <RestOfLineSwitch
+            setFlags={setFlags}
+            flags={flags}
+          ></RestOfLineSwitch>
         </Col>
       </Row>
     </Form>
   );
 }
-
-
-
-
