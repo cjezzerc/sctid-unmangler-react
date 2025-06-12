@@ -9,11 +9,12 @@ export default function UnmanglerCombo({
   toggleWord,
   enteredData,
   setEnteredData,
+  exampleData,
 }) {
   return (
     <Card className="myapp_card" style={{ height: "95vh" }}>
       {/* <Card.Body> */}
-      <Card.Header className="myapp_card_header">Unmangler</Card.Header>
+      <Card.Header className="myapp_card_header">SNOMED CT Code Restorer</Card.Header>
       <Card.Body>
         <PanelGroup autoSaveId="example" direction="horizontal">
           <Panel>
@@ -23,6 +24,7 @@ export default function UnmanglerCombo({
               toggleWord={toggleWord}
               enteredData={enteredData}
               setEnteredData={setEnteredData}
+              exampleData={exampleData}
             />
           </Panel>
           <PanelResizeHandle

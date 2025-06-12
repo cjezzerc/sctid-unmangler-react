@@ -10,6 +10,7 @@ import UnmanglerCombo from "./components/unmanglercombo";
 function App() {
   const [analysisResults, setAnalysisResults] = useState({ check_results: [] });
   const [enteredData, setEnteredData] = useState(
+  
     `1097811000000100	Arterial oxygen saturation breathing room air at rest (observable entity)
 11805901000001100
 999002071000000000
@@ -28,6 +29,8 @@ SNO63700574768824
 29760821000119100  Made up; Valid but not in release; R-CID is same
 28760821000119100  Made up; not Valid ; R-CID is same`
   );
+const [exampleData, setExampleData] = useState("example")
+ 
 
   return (
     <>
@@ -39,6 +42,7 @@ SNO63700574768824
               setAnalysisResults={setAnalysisResults}
               enteredData={enteredData}
               setEnteredData={setEnteredData}
+              exampleData={exampleData}
             />
           </Col>
         </Row>

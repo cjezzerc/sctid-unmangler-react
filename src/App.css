@@ -6,12 +6,13 @@
 }
 
 .card-header.myapp_card_header {
-  background-color: lightblue; 
+  background-color: #5b5b5b;
   font-weight: bold;
+  color: white;
 }
 
 .card-header.myapp_card_header_2 {
-  background-color: lightgoldenrodyellow; 
+  background-color: lightgray;
   font-weight: bold;
 }
 
@@ -20,21 +21,39 @@
   padding: 0;
 }
 
-.card.myapp_card {
-}
-
 .myapp_button {
-  margin:10px;
-}
-
-.myapp_toggle:checked {
-  background-color: red;
-}
-
-.myapp_toggle:not(:checked) {
-  background-color: rgb(160,160,160);
+  margin: 10px;
 }
 
 .form-check-input[type="checkbox"] {
   border-width: 3px;
 }
+
+.setchks-big-green-btn {
+  display: inline-block;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  padding: 1vh 1vh;
+  margin: 1vh;
+  font-size: 2em;
+  font-weight:bold;
+  line-height: 2em;
+  text-align: left;
+  color: white !important;
+  border-style: solid;
+  border-width: 3px !important;
+  border-color: gray !important;
+  background-color: green !important;
+  border-radius: 10px !important;
+}
+
+.setchks-big-green-btn:hover {
+  background-color:#005e00 !important;
+}
+
+.smaller_font {
+  font-size: 0.8em !important;
+}
+
+

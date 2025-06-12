@@ -63,14 +63,14 @@ export default function ResultsPanel({ analysisResults }) {
   return (
     <Card className="myapp_card" style={{ height: "88vh", overflow: "auto" }}>
       <Card.Header className="myapp_card_header_2">
-        Corruption Analysis
+        Analysis
       </Card.Header>
       <Card.Body>
         <Row className="align-items-center" style={{ margin: "3px" }}>
           <ResultsButtons setFlags={setFlags} flags={flags}></ResultsButtons>
         </Row>
-        <Table striped bordered responsive>
-          <thead>{table_headers}</thead>
+        <Table striped bordered responsive className="smaller_font">
+          <thead style={{borderWidth:"3px"}}>{table_headers}</thead>
           <tbody>{table_results_data}</tbody>
         </Table>
       </Card.Body>

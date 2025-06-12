@@ -59,9 +59,12 @@ function ConceptsToShowButtons({ setFlags, flags }) {
     <Form.Group
       onChange={handleChange}
       style={{
-        border: "1px solid black",
-        borderRadius: "0.25em",
+        border: "solid",
+        borderWidth: "3px",
+        borderColor: "gray",
+        borderRadius: "10px",
         padding: "7px",
+        marginBottom:"10px",
       }}
     >
       <Form.Check
