@@ -1,6 +1,7 @@
 import { Card, Form, Button, Row, Col } from "react-bootstrap";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 
 export default function DataEntryPanel({
   setAnalysisResults,
@@ -34,9 +35,9 @@ export default function DataEntryPanel({
   }
 
   function get_example_data() {
-    console.log("CLicked get example data button")
+    console.log("CLicked get example data button");
     // console.log(exampleData)
-    // setEnteredData(exampleData)
+    setEnteredData(exampleData);
   }
 
   const renderTooltipPasteText = (props) =>
@@ -77,8 +78,7 @@ export default function DataEntryPanel({
 
   const renderTooltipExampleData = (props) => (
     <Tooltip id="button-tooltip-example-data" {...props}>
-      This will replace the data in the data entry area with example data
-      &nbsp;{" "}
+      This will replace the data in the data entry area with example data &nbsp;{" "}
       <a href="https://example.com/" target="#">
         (learn more)
       </a>
@@ -95,7 +95,7 @@ export default function DataEntryPanel({
               delay={{ show: 250, hide: 500 }}
               overlay={renderTooltipPasteText}
             >
-              <div style={{fontWeight:"bold", }}>
+              <div style={{ fontWeight: "bold" }}>
                 Paste codes in box below, then press one of the two check
                 buttons.
               </div>
@@ -110,7 +110,10 @@ export default function DataEntryPanel({
                 className="setchks-big-green-btn"
                 onClick={submit_ignore_did_flag_true}
               >
-                Check codes <div> (only reconstruct as Concept IDs) </div>
+                Check codes
+                <div className="much_smaller_font">
+                  (only reconstruct as Concept IDs)
+                </div>
               </Button>
             </OverlayTrigger>
           </Col>
@@ -124,7 +127,10 @@ export default function DataEntryPanel({
                 className="setchks-big-green-btn"
                 onClick={submit_ignore_did_flag_false}
               >
-                Check codes (reconstruct as Concept and Description IDs)
+                Check codes{" "}
+                <div className="much_smaller_font">
+                  (reconstruct as Concept and Description IDs)
+                </div>
               </Button>
             </OverlayTrigger>
           </Col>
@@ -146,13 +152,13 @@ export default function DataEntryPanel({
         <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             {/* <Form.Label>Paste in this box</Form.Label> */}
+
             <Form.Control
               as="textarea"
+              placeholder="Enter/paste data here .."
               rows={20}
-              defaultValue={enteredData}
+              value={enteredData}
               onChange={(event) => setEnteredData(event.target.value)}
-              // onPaste={(event) => setEnteredData(event.target.value)}
-              // onKeyUp={(event) => setEnteredData(event.target.value)}
               className="smaller_font"
             />
           </Form.Group>
