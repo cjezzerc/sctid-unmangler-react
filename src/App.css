@@ -60,4 +60,12 @@
   font-size: 0.6em !important;
 }
 
+.tableContainer{ 
+    height: 60vh;
+    overflow: auto;
+}
+
+
+
+
 

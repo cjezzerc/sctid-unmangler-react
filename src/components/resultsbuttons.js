@@ -119,9 +119,25 @@ export function RestOfLineSwitch({ setFlags, flags }) {
   return (
     <Form.Check
       type="checkbox"
-      id="custom-switch"
+      id="switch-rest-of-line"
       label="Show rest of input line"
       defaultChecked={flags.show_rest_of_line}
+      onClick={handleClick}
+    />
+  );
+}
+
+export function ExplanationSwitch({ setFlags, flags }) {
+  function handleClick(event) {
+    setFlags({ ...flags, show_explanation: event.target.checked });
+  }
+
+  return (
+    <Form.Check
+      type="checkbox"
+      id="switch-explanation"
+      label="Show explanation"
+      defaultChecked={flags.show_explanation}
       onClick={handleClick}
     />
   );
@@ -142,6 +158,10 @@ export function ResultsButtons({ setFlags, flags }) {
             setFlags={setFlags}
             flags={flags}
           ></RestOfLineSwitch>
+          <ExplanationSwitch
+            setFlags={setFlags}
+            flags={flags}
+          ></ExplanationSwitch>
         </Col>
       </Row>
     </Form>

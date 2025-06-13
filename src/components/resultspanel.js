@@ -3,10 +3,28 @@ import { useState } from "react";
 import { Card, Table, Row, Col } from "react-bootstrap";
 import { ResultsButtons } from "./resultsbuttons";
 
+const status_icons = {
+  "OutcomeCodes.POSSIBLE_CORRUPTION_UNAMBIG":
+    "src/assets/possible_corruption_unambig.svg",
+  "OutcomeCodes.POSSIBLE_CORRUPTION_AMBIG":
+    "src/assets/possible_corruption_ambig.svg",
+  "OutcomeCodes.ANY_CORRUPTION_IS_SILENT":
+    "src/assets/any_corruption_is_silent.svg",
+  "OutcomeCodes.AMBIG_COULD_BE_SILENT": "src/assets/ambig_could_be_silent.svg",
+  "OutcomeCodes.NO_RECONSTRUCTIONS_EXIST":
+    "src/assets/no_reconstructions_exist.svg",
+};
+
+const true_false_icons = {
+  true: "src/assets/green_tick.svg",
+  false: "src/assets/red_cross.svg",
+};
+
 export default function ResultsPanel({ analysisResults }) {
   const [flags, setFlags] = useState({
     show_rest_of_line: false,
     only_show_mangled: false,
+    show_explanation: false,
     concepts_to_show: "mangled_non_silent", // "all"|"invalid"|"mangled"|"mangled_non_silent"
   });
   const yes_no = { true: "YES!", false: "N" };
@@ -23,7 +41,7 @@ export default function ResultsPanel({ analysisResults }) {
         "OutcomeCodes.AMBIG_COULD_BE_SILENT",
       ].includes(data.corruption_analysis.outcome_code) &&
         flags.concepts_to_show == "mangled") ||
-        ([
+      ([
         "OutcomeCodes.POSSIBLE_CORRUPTION_UNAMBIG",
         "OutcomeCodes.POSSIBLE_CORRUPTION_AMBIG",
         "OutcomeCodes.AMBIG_COULD_BE_SILENT",
@@ -34,10 +52,29 @@ export default function ResultsPanel({ analysisResults }) {
         <tr key={data.id}>
           <td>{data.corruption_analysis.sctid_provided}</td>
           {flags.show_rest_of_line && <td>{data.other_data.rest_of_line}</td>}
-          <td>{yes_no[!data.corruption_analysis.validity]}</td>
           <td>
-            {data.corruption_analysis.outcome_code.replace("OutcomeCodes.", "")}
+            <img
+              src={true_false_icons[data.corruption_analysis.validity]}
+              width="20px"
+              alt=""
+            />
           </td>
+
+          <td>
+            <img
+              src={status_icons[data.corruption_analysis.outcome_code]}
+              width="30px"
+              alt=""
+            />
+          </td>
+          {flags.show_explanation && (
+            <td>
+              {data.corruption_analysis.outcome_code.replace(
+                "OutcomeCodes.",
+                ""
+              )}
+            </td>
+          )}
           <td>{data.corruption_analysis.r_cid}</td>
           <td>{data.corruption_analysis.r_cid_pt}</td>
           <td>{data.corruption_analysis.r_did}</td>
@@ -51,28 +88,34 @@ export default function ResultsPanel({ analysisResults }) {
     <tr>
       <th>Code(SCTID)</th>
       {flags.show_rest_of_line && <th>Rest of input row</th>}
-      <th>Invalid code?</th>
-      <th>Mangling possible?</th>
+      <th>Valid format code?</th>
+      <th>Status</th>
+      {flags.show_explanation && <th>Explanation</th>}
       <th>Reconstructed Concept Id</th>
       <th>Reconstructed Concept Id PT</th>
       <th>Reconstructed Description Id</th>
-      <th>Reconstructed Description Term</th>
+      <th> Reconstructed Description Term</th>
     </tr>
   ))();
 
   return (
-    <Card className="myapp_card" style={{ height: "88vh", overflow: "auto" }}>
+    <Card className="myapp_card" style={{ height: "80vh", overflow: "auto" }}>
       <Card.Header className="myapp_card_header_2">
         Analysis
+        <img src="src/assets/recon_unambig.svg" width="30px" alt="" />
       </Card.Header>
       <Card.Body>
         <Row className="align-items-center" style={{ margin: "3px" }}>
           <ResultsButtons setFlags={setFlags} flags={flags}></ResultsButtons>
         </Row>
-        <Table striped bordered responsive className="smaller_font">
-          <thead style={{borderWidth:"3px"}}>{table_headers}</thead>
-          <tbody>{table_results_data}</tbody>
-        </Table>
+        <Row>
+          <div className="tableContainer">
+            <Table striped bordered responsive className="smaller_font">
+              <thead className="tableHeader">{table_headers}</thead>
+              <tbody>{table_results_data}</tbody>
+            </Table>
+          </div>
+        </Row>
       </Card.Body>
     </Card>
   );

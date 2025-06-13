@@ -124,6 +124,7 @@ export default function DataEntryPanel({
             >
               <Button
                 variant="primary"
+                
                 className="setchks-big-green-btn"
                 onClick={submit_ignore_did_flag_false}
               >
