@@ -61,7 +61,7 @@ function ConceptsToShowButtons({ setFlags, flags }) {
       style={{
         border: "solid",
         borderWidth: "3px",
-        borderColor: "gray",
+        borderColor: "lightgray",
         borderRadius: "10px",
         padding: "7px",
         marginBottom:"10px",

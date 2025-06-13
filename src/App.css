@@ -22,7 +22,8 @@
 }
 
 .myapp_button {
-  margin: 10px;
+  border-width: 3px !important;
+  border-color: gray !important;
 }
 
 .form-check-input[type="checkbox"] {
@@ -65,6 +66,21 @@
     overflow: auto;
 }
 
+/* .dropdown-item {
+  color:red !important;
+  background-color: gray !important;
+} */
+
+.dropdown-toggle {
+  color:black !important;
+  background-color: white !important;
+  border-width: 3px !important;
+  border-color: gray !important;
+}
+
+.dropdown-toggle:hover {
+  background-color: lightgrey !important;
+}
 
 
 
