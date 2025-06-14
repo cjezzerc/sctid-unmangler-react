@@ -108,12 +108,15 @@ export default function ResultsPanel({ analysisResults }) {
         <Row className="align-items-center" style={{ margin: "3px" }}>
           <ResultsButtons setFlags={setFlags} flags={flags}></ResultsButtons>
         </Row>
+
         <Row>
-          <div className="tableContainer">
-            <Table striped bordered responsive className="smaller_font">
-              <thead className="tableHeader">{table_headers}</thead>
+          <div className="tableFixHead">
+            {/* <table> */}
+            <Table striped bordered className="smaller_font">
+              <thead >{table_headers}</thead>
               <tbody>{table_results_data}</tbody>
             </Table>
+            {/* </table> */}
           </div>
         </Row>
       </Card.Body>
