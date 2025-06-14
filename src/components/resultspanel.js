@@ -50,7 +50,10 @@ export default function ResultsPanel({ analysisResults }) {
     ) {
       return (
         <tr key={data.id}>
-          <td>{data.corruption_analysis.sctid_provided}</td>
+          <td>
+            {data.corruption_analysis.sctid_provided_stem}
+            <b>{data.corruption_analysis.sctid_provided_trailing_zeroes}</b>
+          </td>
           {flags.show_rest_of_line && <td>{data.other_data.rest_of_line}</td>}
           <td>
             <img
@@ -75,9 +78,10 @@ export default function ResultsPanel({ analysisResults }) {
               )}
             </td>
           )}
-          <td>{data.corruption_analysis.r_cid}</td>
+          <td>{data.corruption_analysis.r_cid_stem}<b>{data.corruption_analysis.r_cid_trailing_zeroes}</b></td>
           <td>{data.corruption_analysis.r_cid_pt}</td>
-          <td>{data.corruption_analysis.r_did}</td>
+          <td>{data.corruption_analysis.r_did_stem}<b>{data.corruption_analysis.r_did_trailing_zeroes}</b></td>
+
           <td>{data.corruption_analysis.r_did_term}</td>
         </tr>
       );
@@ -113,7 +117,7 @@ export default function ResultsPanel({ analysisResults }) {
           <div className="tableFixHead">
             {/* <table> */}
             <Table striped bordered className="smaller_font">
-              <thead >{table_headers}</thead>
+              <thead>{table_headers}</thead>
               <tbody>{table_results_data}</tbody>
             </Table>
             {/* </table> */}
