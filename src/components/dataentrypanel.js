@@ -78,6 +78,8 @@ export default function DataEntryPanel({
           </Col>
         </Row>
         <Row style={{ padding: "10px" }}>
+          
+          
           <Col className="align-self-center">
             <Button
               variant="outline-secondary"

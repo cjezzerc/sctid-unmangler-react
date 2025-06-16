@@ -52,7 +52,7 @@ export default function ResultsPanel({ analysisResults }) {
         <tr key={data.id}>
           <td>
             {data.corruption_analysis.sctid_provided_stem}
-            <b>{data.corruption_analysis.sctid_provided_trailing_zeroes}</b>
+            <b><u>{data.corruption_analysis.sctid_provided_trailing_zeroes}</u></b>
           </td>
           {flags.show_rest_of_line && <td>{data.other_data.rest_of_line}</td>}
           <td>
@@ -78,9 +78,9 @@ export default function ResultsPanel({ analysisResults }) {
               )}
             </td>
           )}
-          <td>{data.corruption_analysis.r_cid_stem}<b>{data.corruption_analysis.r_cid_trailing_zeroes}</b></td>
+          <td>{data.corruption_analysis.r_cid_stem}<b><u>{data.corruption_analysis.r_cid_trailing_zeroes}</u></b></td>
           <td>{data.corruption_analysis.r_cid_pt}</td>
-          <td>{data.corruption_analysis.r_did_stem}<b>{data.corruption_analysis.r_did_trailing_zeroes}</b></td>
+          <td>{data.corruption_analysis.r_did_stem}<b><u>{data.corruption_analysis.r_did_trailing_zeroes}</u></b></td>
 
           <td>{data.corruption_analysis.r_did_term}</td>
         </tr>

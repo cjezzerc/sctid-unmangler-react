@@ -57,7 +57,7 @@ function ConceptsToShowButtons({ setFlags, flags }) {
 
   return (
     <Form.Group
-      onChange={handleChange}
+      // onChange={handleChange}
       style={{
         border: "solid",
         borderWidth: "3px",
