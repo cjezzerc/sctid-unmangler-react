@@ -19,7 +19,6 @@ export default function DataEntryPanel({
       <Form.Check
         inline
         type="checkbox"
-        id="switch-ignore-descriptions"
         label="Ignore Description IDs"
         defaultChecked={ignoreDescriptions}
         onClick={handleClick}
@@ -46,7 +45,6 @@ export default function DataEntryPanel({
 
   function get_example_data() {
     console.log("CLicked get example data button");
-    // console.log(exampleData)
     setEnteredData(exampleData);
   }
 
@@ -67,8 +65,7 @@ export default function DataEntryPanel({
         </Row>
         <Row style={{ padding: "10px" }}>
           <Col xs="auto">
-            <Form.Group
-              // onChange={handleChange}
+            <div
               style={{
                 border: "solid",
                 borderWidth: "3px",
@@ -79,26 +76,22 @@ export default function DataEntryPanel({
                 width: "auto",
               }}
             >
-             
               <Button
-              style={{ display: "inline", width: "auto", marginRight: "10px", }}
-              variant="outline-secondary"
-              className="myapp_button"
-              onClick={submitfunction}
-            >
-              Check Codes!
-            </Button>
-
+                variant="outline-secondary"
+                className="myapp_button"
+                onClick={submitfunction}
+              >
+                Check Codes!
+              </Button>
               <IgnoreDescriptionSwitch></IgnoreDescriptionSwitch>
-            </Form.Group>
+            </div>
           </Col>
-        
 
           <Col xs="auto" className="align-self-center">
             <Button
-              style={{ display: "inline", width: "auto", marginBottom: "10px" }}
               variant="outline-secondary"
               className="myapp_button"
+              style={{ marginBottom: "10px" }}
               onClick={get_example_data}
             >
               Get example data
@@ -106,14 +99,14 @@ export default function DataEntryPanel({
           </Col>
         </Row>
         <Form>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Group className="mb-3">
             <Form.Control
               as="textarea"
-              placeholder="Enter/paste data here .."
+              className="smaller_font"
               rows={20}
+              placeholder="Enter/paste data here .."
               value={enteredData}
               onChange={(event) => setEnteredData(event.target.value)}
-              className="smaller_font"
             />
           </Form.Group>
         </Form>

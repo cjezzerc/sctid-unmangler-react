@@ -14,7 +14,6 @@ export default function UnmanglerCombo({
   return (
     <Container fluid>
       <Card className="myapp_card" style={{ height: "95vh" }}>
-        {/* <Card.Body> */}
         <Card.Header className="myapp_card_header">
           SNOMED CT Code Restorer
         </Card.Header>

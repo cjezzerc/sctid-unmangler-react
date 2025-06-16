@@ -24,6 +24,9 @@
 .myapp_button {
   border-width: 3px !important;
   border-color: gray !important;
+  display: inline;
+  width: auto;
+  margin-right: 10px !important;
 }
 
 .form-check-input[type="checkbox"] {

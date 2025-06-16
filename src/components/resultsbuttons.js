@@ -1,9 +1,5 @@
-import { useState } from "react";
-
 import { Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import ToggleButton from "react-bootstrap/ToggleButton";
-import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 
 function ConceptsToShowButtons({ setFlags, flags }) {
   function handleChange(event) {
@@ -12,7 +8,6 @@ function ConceptsToShowButtons({ setFlags, flags }) {
 
   return (
     <Form.Group
-      // onChange={handleChange}
       style={{
         border: "solid",
         borderWidth: "3px",
