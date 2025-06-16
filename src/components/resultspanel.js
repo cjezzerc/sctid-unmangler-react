@@ -39,13 +39,13 @@ export default function ResultsPanel({ analysisResults }) {
         "OutcomeCodes.POSSIBLE_CORRUPTION_AMBIG",
         "OutcomeCodes.ANY_CORRUPTION_IS_SILENT",
         "OutcomeCodes.AMBIG_COULD_BE_SILENT",
-      ].includes(data.corruption_analysis.outcome_code) &&
+      ].includes(data.corruption_analysis.outcome_code.name) &&
         flags.concepts_to_show == "mangled") ||
       ([
         "OutcomeCodes.POSSIBLE_CORRUPTION_UNAMBIG",
         "OutcomeCodes.POSSIBLE_CORRUPTION_AMBIG",
         "OutcomeCodes.AMBIG_COULD_BE_SILENT",
-      ].includes(data.corruption_analysis.outcome_code) &&
+      ].includes(data.corruption_analysis.outcome_code.name) &&
         flags.concepts_to_show == "mangled_non_silent")
     ) {
       return (
@@ -65,17 +65,18 @@ export default function ResultsPanel({ analysisResults }) {
 
           <td>
             <img
-              src={status_icons[data.corruption_analysis.outcome_code]}
+              src={status_icons[data.corruption_analysis.outcome_code.name]}
               width="30px"
               alt=""
             />
           </td>
           {flags.show_explanation && (
             <td>
-              {data.corruption_analysis.outcome_code.replace(
+              {data.corruption_analysis.outcome_code.value}
+              {/* {data.corruption_analysis.outcome_code.replace(
                 "OutcomeCodes.",
                 ""
-              )}
+              )} */}
             </td>
           )}
           <td>{data.corruption_analysis.r_cid_stem}<b><u>{data.corruption_analysis.r_cid_trailing_zeroes}</u></b></td>
