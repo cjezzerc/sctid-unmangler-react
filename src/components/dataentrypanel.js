@@ -1,10 +1,6 @@
 import { useState } from "react";
 
 import { Card, Form, Button, Row, Col } from "react-bootstrap";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 
 export default function DataEntryPanel({
   setAnalysisResults,
@@ -21,6 +17,7 @@ export default function DataEntryPanel({
     }
     return (
       <Form.Check
+        inline
         type="checkbox"
         id="switch-ignore-descriptions"
         label="Ignore Description IDs"
@@ -53,15 +50,6 @@ export default function DataEntryPanel({
     setEnteredData(exampleData);
   }
 
-  // const renderTooltipExampleData = (props) => (
-  //   <Tooltip id="button-tooltip-example-data" {...props}>
-  //     This will replace the data in the data entry area with example data &nbsp;{" "}
-  //     <a href="https://example.com/" target="#">
-  //       (learn more)
-  //     </a>
-  //   </Tooltip>
-  // );
-
   return (
     <Card className="myapp_card" style={{ height: "88vh", overflow: "auto" }}>
       <Card.Header className="myapp_card_header_2">Data Entry</Card.Header>
@@ -78,34 +66,43 @@ export default function DataEntryPanel({
           </Col>
         </Row>
         <Row style={{ padding: "10px" }}>
-          
-          
-          <Col className="align-self-center">
-            <Button
+          <Col xs="auto">
+            <Form.Group
+              // onChange={handleChange}
+              style={{
+                border: "solid",
+                borderWidth: "3px",
+                borderColor: "lightgray",
+                borderRadius: "10px",
+                padding: "7px",
+                marginBottom: "10px",
+                width: "auto",
+              }}
+            >
+             
+              <Button
+              style={{ display: "inline", width: "auto", marginRight: "10px", }}
               variant="outline-secondary"
               className="myapp_button"
               onClick={submitfunction}
             >
-              Check Codes
-            </Button>{" "}
-          </Col>
-          <Col className="align-self-center">
-            <IgnoreDescriptionSwitch></IgnoreDescriptionSwitch>
-          </Col>
+              Check Codes!
+            </Button>
 
-          <Col>
-            {/* <OverlayTrigger
-              delay={{ show: 250, hide: 500 }}
-              overlay={renderTooltipExampleData}
-            > */}
+              <IgnoreDescriptionSwitch></IgnoreDescriptionSwitch>
+            </Form.Group>
+          </Col>
+        
+
+          <Col xs="auto" className="align-self-center">
             <Button
+              style={{ display: "inline", width: "auto", marginBottom: "10px" }}
               variant="outline-secondary"
               className="myapp_button"
               onClick={get_example_data}
             >
               Get example data
             </Button>
-            {/* </OverlayTrigger> */}
           </Col>
         </Row>
         <Form>
