@@ -26,8 +26,12 @@ export default function DataEntryPanel({
     );
   }
 
+
   function submitfunction() {
-    fetch("http://localhost:8000/receive_entered_data", {
+    // requires line in .env.local such as 
+    // VITE_API_URL='http://localhost:8000'
+    fetch(import.meta.env.VITE_API_URL + "/receive_entered_data", {
+    // fetch("http://localhost:8000/receive_entered_data", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
