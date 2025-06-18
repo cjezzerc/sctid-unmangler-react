@@ -87,7 +87,7 @@
 
 .tableFixHead {
   overflow: auto ;
-  height: 60vh ;
+  height: 70vh ;
 }
 .tableFixHead thead th {
   position: sticky ;

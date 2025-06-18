@@ -48,7 +48,7 @@ export default function DataEntryPanel({
   }
 
   function get_example_data() {
-    console.log("CLicked get example data button");
+    console.log("Clicked get example data button");
     setEnteredData(exampleData);
   }
 
@@ -59,10 +59,10 @@ export default function DataEntryPanel({
         <Row style={{ padding: "10px" }}>
           <Col className="align-self-center">
             <div>
-              Paste codes in box below, then choose an action. The codes must be
-              the first thing on each line. Text such as terms can come after
-              the codes. Pasting a couple of columns from a spreadsheet should
-              work. As should data entered in the form such as{" "}
+              Enter or paste SNOMED codes in box below, then click "Check Codes". The code must be
+              the first thing on each line. Text such as the preferred term can come after
+              the code. Pasting a couple of columns from a spreadsheet should
+              work, as should entering data in the form such as{" "}
               <i> 125605004 |Fracture of bone (disorder)|</i>
             </div>
           </Col>
@@ -85,7 +85,7 @@ export default function DataEntryPanel({
                 className="myapp_button"
                 onClick={submitfunction}
               >
-                Check Codes!
+                Check Codes
               </Button>
               <IgnoreDescriptionSwitch></IgnoreDescriptionSwitch>
             </div>
@@ -108,7 +108,7 @@ export default function DataEntryPanel({
               as="textarea"
               className="smaller_font"
               rows={20}
-              placeholder="Enter/paste data here .."
+              placeholder="Enter/paste data here (or click the 'Get Example Data' button).."
               value={enteredData}
               onChange={(event) => setEnteredData(event.target.value)}
             />

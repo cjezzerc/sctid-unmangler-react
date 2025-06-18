@@ -107,7 +107,7 @@ export default function ResultsPanel({ analysisResults }) {
   const table_headers = (() => (
     <tr>
       <th>Code(SCTID)</th>
-      {flags.show_rest_of_line && <th>Rest of input row</th>}
+      {flags.show_rest_of_line && <th>Rest of line</th>}
       <th>Valid format code?</th>
       <th>Status</th>
       {flags.show_explanation && <th>Explanation</th>}
@@ -119,7 +119,7 @@ export default function ResultsPanel({ analysisResults }) {
   ))();
 
   return (
-    <Card className="myapp_card" style={{ height: "80vh", overflow: "auto" }}>
+    <Card className="myapp_card" style={{ height: "87vh", overflow: "auto" }}>
       <Card.Header className="myapp_card_header_2">
         Analysis
         <img src="src/assets/recon_unambig.svg" width="30px" alt="" />

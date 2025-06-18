@@ -17,6 +17,7 @@ function ConceptsToShowButtons({ setFlags, flags }) {
         marginBottom: "10px",
       }}
     >
+      <div style={{ display: "inline", paddingRight:"10px" }}>Lines to show:</div>
       <Form.Check
         inline
         label="Only corrupted"
@@ -70,7 +71,7 @@ export function RestOfLineSwitch({ setFlags, flags }) {
     <Form.Check
       type="checkbox"
       id="switch-rest-of-line"
-      label="Show rest of input line"
+      label="Show rest of each input line"
       defaultChecked={flags.show_rest_of_line}
       onClick={handleClick}
     />
@@ -86,7 +87,7 @@ export function ExplanationSwitch({ setFlags, flags }) {
     <Form.Check
       type="checkbox"
       id="switch-explanation"
-      label="Show explanation"
+      label="Show explanations"
       defaultChecked={flags.show_explanation}
       onClick={handleClick}
     />
