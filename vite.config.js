@@ -1,5 +1,7 @@
-import { defineConfig, transformWithEsbuild } from 'vite'
+import { defineConfig, transformWithEsbuild} from 'vite'
 import react from '@vitejs/plugin-react'
+
+
 
 // https://vite.dev/config/
 
@@ -15,6 +17,7 @@ import react from '@vitejs/plugin-react'
 // not sure when this is run)
 
 export default defineConfig({
+  base:'/code-restorer/',
   plugins: [
     {
       name: 'treat-js-files-as-jsx',
