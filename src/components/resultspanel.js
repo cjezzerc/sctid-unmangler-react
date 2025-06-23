@@ -122,7 +122,6 @@ export default function ResultsPanel({ analysisResults }) {
     <Card className="myapp_card" style={{ height: "87vh", overflow: "auto" }}>
       <Card.Header className="myapp_card_header_2">
         Analysis
-        <img src="src/assets/recon_unambig.svg" width="30px" alt="" />
       </Card.Header>
       <Card.Body>
         <Row className="align-items-center" style={{ margin: "3px" }}>

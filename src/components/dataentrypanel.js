@@ -101,6 +101,16 @@ export default function DataEntryPanel({
               Get example data
             </Button>
           </Col>
+          <Col xs="auto" className="align-self-center">
+            <Button
+              variant="outline-secondary"
+              className="myapp_button"
+              style={{ marginBottom: "10px" }}
+              href={"help_test.pdf"}
+              target="#">         
+              Help
+            </Button>
+          </Col>
         </Row>
         <Form>
           <Form.Group className="mb-3">
