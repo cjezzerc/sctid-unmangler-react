@@ -1,6 +1,7 @@
 import { Card, Container } from "react-bootstrap";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import DataEntryPanel from "./dataentrypanel";
+import HelpPanel from "./helppanel";
 import ResultsPanel from "./resultspanel";
 
 export default function UnmanglerCombo({
@@ -19,9 +20,21 @@ export default function UnmanglerCombo({
         </Card.Header>
         <Card.Body>
           <PanelGroup autoSaveId="example" direction="horizontal">
-            <Panel>
-              <DataEntryPanel
+            <Panel defaultSize={10}>
+              <HelpPanel
                 defaultSize={25}
+                setAnalysisResults={setAnalysisResults}
+                toggleWord={toggleWord}
+                enteredData={enteredData}
+                setEnteredData={setEnteredData}
+                exampleData={exampleData}
+              />
+            </Panel>
+            <PanelResizeHandle
+              style={{ width: "5px", backgroundColor: "grey" }}
+            />
+            <Panel defaultSize={25}>
+              <DataEntryPanel
                 setAnalysisResults={setAnalysisResults}
                 toggleWord={toggleWord}
                 enteredData={enteredData}

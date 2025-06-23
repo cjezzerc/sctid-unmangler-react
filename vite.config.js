@@ -20,6 +20,15 @@ export default defineConfig({
   base:'/code-restorer/',
   plugins: [
     {
+      name: "markdown-loader",
+      transform(code, id) {
+        if (id.slice(-3) === ".md") {
+          // For .md files, get the raw content
+          return `export default ${JSON.stringify(code)};`;
+        }
+      }
+    },
+    {
       name: 'treat-js-files-as-jsx',
       async transform(code, id) {
         if (!id.match(/src\/.*\.js$/))  return null
