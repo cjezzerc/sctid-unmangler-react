@@ -8,6 +8,7 @@ import "./App.css";
 import UnmanglerCombo from "./components/unmanglercombo";
 
 function App() {
+  const [ignoreDescriptions, setIgnoreDescriptions] = useState(true);
   const [analysisResults, setAnalysisResults] = useState({ check_results: [] });
   const [enteredData, setEnteredData] = useState("");
   const [exampleData, setExampleData] = useState(
@@ -27,7 +28,8 @@ SNO63700574768824
 4036431000001100 Made up; not valid; reconstruction does not exist(16)
 4736431000001100 Made up; valid but not in release; R-CID is the same(16)
 29760821000119100  Made up; Valid but not in release; R-CID is same
-28760821000119100  Made up; not Valid ; R-CID is same`
+28760821000119100  Made up; not Valid ; R-CID is same
+1120381000000110 Swine influenz contact (16 digit description ID)`
   );
 
   return (
@@ -36,6 +38,8 @@ SNO63700574768824
         <Row style={{ height: "95vh" }}>
           <Col xs={12}>
             <UnmanglerCombo
+              ignoreDescriptions={ignoreDescriptions}
+              setIgnoreDescriptions={setIgnoreDescriptions}
               analysisResults={analysisResults}
               setAnalysisResults={setAnalysisResults}
               enteredData={enteredData}

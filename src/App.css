@@ -94,3 +94,17 @@
   top: 0 ;
   z-index: 1 ;
 }
+
+h1 {
+  text-align: left;
+  font-style: italic;
+  font-size: 1.5em !important;
+  font-weight: bold !important;
+}
+
+.p_help {
+  text-align: left;
+}
+
+
+

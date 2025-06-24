@@ -20,6 +20,16 @@ function ConceptsToShowButtons({ setFlags, flags }) {
       <div style={{ display: "inline", paddingRight:"10px" }}>Lines to show:</div>
       <Form.Check
         inline
+        label="All"
+        name="group1"
+        type={"checkbox"}
+        checked={flags.concepts_to_show == "all"}
+        id={"all"}
+        value={"all"}
+        onChange={handleChange}
+      />
+      <Form.Check
+        inline
         label="Only corrupted"
         name="group1"
         type={"checkbox"}
@@ -48,16 +58,7 @@ function ConceptsToShowButtons({ setFlags, flags }) {
         value={"invalid"}
         onChange={handleChange}
       />
-      <Form.Check
-        inline
-        label="All"
-        name="group1"
-        type={"checkbox"}
-        checked={flags.concepts_to_show == "all"}
-        id={"all"}
-        value={"all"}
-        onChange={handleChange}
-      />
+      
     </Form.Group>
   );
 }
@@ -109,10 +110,10 @@ export function ResultsButtons({ setFlags, flags }) {
             setFlags={setFlags}
             flags={flags}
           ></RestOfLineSwitch>
-          <ExplanationSwitch
+          {/* <ExplanationSwitch
             setFlags={setFlags}
             flags={flags}
-          ></ExplanationSwitch>
+          ></ExplanationSwitch> */}
         </Col>
       </Row>
     </Form>

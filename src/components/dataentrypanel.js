@@ -3,12 +3,14 @@ import { useState } from "react";
 import { Card, Form, Button, Row, Col } from "react-bootstrap";
 
 export default function DataEntryPanel({
+  ignoreDescriptions,
+  setIgnoreDescriptions,
   setAnalysisResults,
   enteredData,
   setEnteredData,
   exampleData,
 }) {
-  const [ignoreDescriptions, setIgnoreDescriptions] = useState(true);
+  // const [ignoreDescriptions, setIgnoreDescriptions] = useState(true);
 
   function IgnoreDescriptionSwitch() {
     function handleClick(event) {
@@ -59,11 +61,7 @@ export default function DataEntryPanel({
         <Row style={{ padding: "10px" }}>
           <Col className="align-self-center">
             <div>
-              Enter or paste SNOMED codes in box below, then click "Check Codes". The code must be
-              the first thing on each line. Text such as the preferred term can come after
-              the code. Pasting a couple of columns from a spreadsheet should
-              work, as should entering data in the form such as{" "}
-              <i> 125605004 |Fracture of bone (disorder)|</i>
+              Enter or paste SNOMED codes in box below, then click "Check Codes"
             </div>
           </Col>
         </Row>
@@ -85,7 +83,7 @@ export default function DataEntryPanel({
                 className="myapp_button"
                 onClick={submitfunction}
               >
-                Check Codes
+                Check codes
               </Button>
               <IgnoreDescriptionSwitch></IgnoreDescriptionSwitch>
             </div>
@@ -101,7 +99,7 @@ export default function DataEntryPanel({
               Get example data
             </Button>
           </Col>
-          <Col xs="auto" className="align-self-center">
+          {/* <Col xs="auto" className="align-self-center">
             <Button
               variant="outline-secondary"
               className="myapp_button"
@@ -110,7 +108,7 @@ export default function DataEntryPanel({
               target="#">         
               Help
             </Button>
-          </Col>
+          </Col> */}
         </Row>
         <Form>
           <Form.Group className="mb-3">
