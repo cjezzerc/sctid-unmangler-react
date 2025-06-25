@@ -26,7 +26,7 @@ export default function DataEntryPanel({
       <Form.Check
         inline
         type="checkbox"
-        label="Ignore Description IDs"
+        label="Ignore Description Ids"
         defaultChecked={ignoreDescriptions}
         onClick={handleClick}
       />
@@ -129,6 +129,12 @@ export default function DataEntryPanel({
               placeholder="Enter/paste data here (or click the 'Get Example Data' button).."
               value={enteredData}
               onChange={(event) => setEnteredData(event.target.value)}
+              style={{
+                borderWidth: "5px",
+                fontFamily: "monospace",
+                whiteSpace: "pre",
+                tabSize:20
+              }}
             />
           </Form.Group>
         </Form>

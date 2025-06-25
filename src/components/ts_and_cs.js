@@ -23,7 +23,7 @@ export default function TermsModal({termsAccepted, setTermsAccepted}) {
 
   return (
     // <Modal show={show} backdrop="static" keyboard={false} size="xl">
-    <Modal show={!termsAccepted} backdrop="static" keyboard={false} size="xl">
+    <Modal show={!termsAccepted} fullscreen={true} backdrop="static" keyboard={false} size="xl">
       <Modal.Header>
         <Modal.Title>Terms and Conditions for Code-Restorer</Modal.Title>
       </Modal.Header>
@@ -55,7 +55,7 @@ export default function TermsModal({termsAccepted, setTermsAccepted}) {
           3000 concepts). Files towards the upper end of this range may impact
           the performance of the tool.
         </p> */}
-        <h2>Licencing</h2>
+        <h2 >Licencing</h2>
         <p>
           By using this application, you accept the licence agreement for the
           use of SNOMED CT, which is available on{" "}
@@ -63,22 +63,21 @@ export default function TermsModal({termsAccepted, setTermsAccepted}) {
             href="https://isd.digital.nhs.uk/trud/users/guest/filters/0/licence/10"
             target="_blank"
           >
-            {" "}
             TRUD
           </a>
           .
         </p>
-        <h2>Cookies</h2>
+        <h2 >Cookies</h2>
         <p>
           This application operates with only essential cookies. By using this
           application, you accept the use of these essential cookies.
         </p>
-        <h2>Retention of Data</h2>
+        <h2 >Retention of Data</h2>
         <p>
           In order to assess usage of the app, summary statistics are recorded about each
           set of codes that are submitted, including the IP address of the client browser.
         </p>
-        <h2>Use of this application</h2>
+        <h2 >Use of this application</h2>
         <p>
           You recognise that this application is a service available to other
           users, and that access or capacity may on occasion be limited. You

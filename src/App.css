@@ -89,6 +89,7 @@
   overflow: auto ;
   height: 70vh ;
 }
+
 .tableFixHead thead th {
   position: sticky ;
   top: 0 ;
@@ -113,6 +114,11 @@ h1 {
 
 .tcmodal_h2 {
   font-size: "0.2em"!important;
+}
+
+.modal-dialog h2 {
+  font-size: 1.25rem; /* or whatever you like */
+  font-weight: bold;
 }
 
 

@@ -32,8 +32,8 @@ export default function HelpPanel({}) {
           </p>
           <h1>QuickStart</h1>
             <ul style={{marginLeft:"0.75rem", textAlign: "left"}}>
-              <li>Click "Get example data" </li>
-              <li>Click "Check Codes" </li>
+              <li>Click "Examples: Simple data" </li>
+              <li>Click "Check codes" </li>
               <li>
                 Inspect the analysis. Codes marked with
                 <img
@@ -58,8 +58,8 @@ export default function HelpPanel({}) {
             in box in the data entry panel.
           </p>
           <p className="p_help">
-            Each line of entered data can contain extra text after the code. And
-            if you have terms (i.e. descriptions) inS your entered data this can
+            Each line of entered data can contain extra text after the code. 
+            If you have terms (i.e. descriptions) in your entered data this can
             be useful so that you can compare the reconstructed code's preferred
             term (using the "Show rest of each input line" in the Analysis
             panel).
