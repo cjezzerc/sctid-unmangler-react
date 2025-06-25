@@ -2,6 +2,12 @@ import { useState } from "react";
 
 import { Card, Form, Button, Row, Col } from "react-bootstrap";
 
+import {
+  simple_data,
+  messy_data,
+  contact_dermatitis,
+} from "../example_data/example_data";
+import { DatasetSelector } from "./dataselector";
 export default function DataEntryPanel({
   ignoreDescriptions,
   setIgnoreDescriptions,
@@ -15,7 +21,6 @@ export default function DataEntryPanel({
   function IgnoreDescriptionSwitch() {
     function handleClick(event) {
       setIgnoreDescriptions(event.target.checked);
-      console.log(ignoreDescriptions);
     }
     return (
       <Form.Check
@@ -28,12 +33,11 @@ export default function DataEntryPanel({
     );
   }
 
-
   function submitfunction() {
-    // requires line in .env.local such as 
+    // requires line in .env.local such as
     // VITE_API_URL='http://localhost:8000'
     fetch(import.meta.env.VITE_API_URL + "/receive_entered_data", {
-    // fetch("http://localhost:8000/receive_entered_data", {
+      // fetch("http://localhost:8000/receive_entered_data", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -50,8 +54,10 @@ export default function DataEntryPanel({
   }
 
   function get_example_data() {
-    console.log("Clicked get example data button");
-    setEnteredData(exampleData);
+    // setEnteredData(messy_data)
+    // setEnteredData(contact_dermatitis)
+    setEnteredData(simple_data);
+    // setEnteredData(exampleData);
   }
 
   return (
@@ -89,7 +95,7 @@ export default function DataEntryPanel({
             </div>
           </Col>
 
-          <Col xs="auto" className="align-self-center">
+          {/* <Col xs="auto" className="align-self-center">
             <Button
               variant="outline-secondary"
               className="myapp_button"
@@ -98,7 +104,11 @@ export default function DataEntryPanel({
             >
               Get example data
             </Button>
+          </Col> */}
+          <Col xs="auto" className="align-self-center">
+            <DatasetSelector setEnteredData={setEnteredData}></DatasetSelector>
           </Col>
+
           {/* <Col xs="auto" className="align-self-center">
             <Button
               variant="outline-secondary"

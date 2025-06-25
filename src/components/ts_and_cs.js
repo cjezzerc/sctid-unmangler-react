@@ -25,14 +25,11 @@ export default function TermsModal({termsAccepted, setTermsAccepted}) {
     // <Modal show={show} backdrop="static" keyboard={false} size="xl">
     <Modal show={!termsAccepted} backdrop="static" keyboard={false} size="xl">
       <Modal.Header>
-        <Modal.Title>Terms & Conditions</Modal.Title>
+        <Modal.Title>Terms and Conditions for Code-Restorer</Modal.Title>
       </Modal.Header>
       <Modal.Body>
 
-
-        <h1>Terms and Conditions for Code-Restorer</h1>
-
-        <h2>Scope</h2>
+        {/* <h1 style={{fontSize:"2em"}}>Scope</h1> */}
         {/* <p>
           This application is limited to allowing a user to upload a value set,
           and providing an outcome report, based on a range of 13 pre-defined

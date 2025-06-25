@@ -13,27 +13,7 @@ function App() {
   const [analysisResults, setAnalysisResults] = useState({ check_results: [], metadata: {snomed_release:undefined} });
   const [enteredData, setEnteredData] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false)
-  const [exampleData, setExampleData] = useState(
-    `1097811000000100	Arterial oxygen saturation breathing room air at rest (observable entity)
-11805901000001100
-999002071000000000
-900000000000462000
-1089881000119100        Minimal keratinized residual ridge mucosa
-11750801000001100
-10760821000119100
-900000000000497000
-SNO63700574768824
-37331000000100	| Comment note (record artifact) |
-703421000	Temperature (observable entity)
-15366271000001108
-8388100084567440 (1Made up; 6 digits; penult digit not 1 or 0)
-4036431000001100 Made up; not valid; reconstruction does not exist(16)
-4736431000001100 Made up; valid but not in release; R-CID is the same(16)
-29760821000119100  Made up; Valid but not in release; R-CID is same
-28760821000119100  Made up; not Valid ; R-CID is same
-1120381000000110 Swine influenz contact (16 digit description ID)`
-  );
-console.log(termsAccepted)
+  
   return (
     <>
       <Container fluid className="bg-light">
@@ -47,7 +27,6 @@ console.log(termsAccepted)
               setAnalysisResults={setAnalysisResults}
               enteredData={enteredData}
               setEnteredData={setEnteredData}
-              exampleData={exampleData}
               termsAccepted={termsAccepted}
               setTermsAccepted={setTermsAccepted}
             />

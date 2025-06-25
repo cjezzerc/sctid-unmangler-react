@@ -11,14 +11,10 @@ export default function UnmanglerCombo({
   setIgnoreDescriptions,
   analysisResults,
   setAnalysisResults,
-  toggleWord,
   enteredData,
   setEnteredData,
-  exampleData,
-  termsAccepted,
   setTermsAccepted,
 }) {
-  console.log(analysisResults)
   const panelGroupRef = useRef(null);
 
   const resetPanels = () => {
@@ -61,11 +57,6 @@ export default function UnmanglerCombo({
           >
             <Panel defaultSize={20}>
               <HelpPanel
-                setAnalysisResults={setAnalysisResults}
-                toggleWord={toggleWord}
-                enteredData={enteredData}
-                setEnteredData={setEnteredData}
-                exampleData={exampleData}
               />
             </Panel>
             <PanelResizeHandle
@@ -76,10 +67,8 @@ export default function UnmanglerCombo({
                 ignoreDescriptions={ignoreDescriptions}
                 setIgnoreDescriptions={setIgnoreDescriptions}
                 setAnalysisResults={setAnalysisResults}
-                toggleWord={toggleWord}
                 enteredData={enteredData}
                 setEnteredData={setEnteredData}
-                exampleData={exampleData}
               />
             </Panel>
             <PanelResizeHandle

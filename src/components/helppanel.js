@@ -1,13 +1,6 @@
 import { useState } from "react";
 
 import { Card, Form, Button, Row, Col, Table } from "react-bootstrap";
-// import ReactMarkdown from "react-markdown";
-// import { help_markdown } from "./helpmarkdown";
-// import remarkGfm from "remark-gfm";
-// import rehypeRaw from "rehype-raw";
-
-// import test_icon from "../assets/test_icon.png"
-// import test_icon from "../assets/possible_corruption_unambig.svg"
 
 import { status_icons, true_false_icons } from "./outcome_icons";
 
@@ -15,11 +8,6 @@ import code_restorer_banner from "../assets/code_restorer_banner.png";
 const ximg = code_restorer_banner;
 import icon_pcu_url from "../assets/possible_corruption_unambig.svg?url";
 const icon_pcu_url_img = icon_pcu_url;
-// const ximg=icon_pcu_url
-// const icon_style="width:32px;height:32px;"
-
-// const test_icon_img=`<img src="${test_icon}" alt="test_icon" style="${icon_style}" >`
-// const code_restorer_banner_img=`<img src="${code_restorer_banner}" alt="test_icon" style="width:40vh;" >`
 
 export default function HelpPanel({}) {
   return (
