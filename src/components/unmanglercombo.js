@@ -4,6 +4,7 @@ import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import DataEntryPanel from "./dataentrypanel";
 import HelpPanel from "./helppanel";
 import ResultsPanel from "./resultspanel";
+import SnomedVersion from "./snomed_version";
 
 export default function UnmanglerCombo({
   ignoreDescriptions,
@@ -19,17 +20,29 @@ export default function UnmanglerCombo({
 
   const resetPanels = () => {
     // Reset to original sizes (e.g., 50/50 split)
-    panelGroupRef.current.setLayout([20, 30, 30]);
+    // panelGroupRef.current.setLayout([20, 30, 30]);
+    panelGroupRef.current.setLayout([26, 37, 37]);
   };
   return (
     <Container fluid>
       <Card className="myapp_card" style={{ height: "95vh" }}>
         <Card.Header className="myapp_card_header">
-          <Row className="w-100" >
-          <Col className="col-10">SNOMED CT Code Restorer</Col>
-          <Col className="col-2">
-            <button style={{padding:"2px"}} onClick={resetPanels}>Reset Panel Sizes </button>
-          </Col></Row>
+          <Row className="w-100">
+            <Col className="col-7">SNOMED CT Code Restorer</Col>
+            <Col className="col-3">
+              <SnomedVersion
+                analysisResults={analysisResults}
+                setAnalysisResults={setAnalysisResults}
+              >
+                {" "}
+              </SnomedVersion>
+            </Col>
+            <Col className="col-2">
+              <button style={{ padding: "2px" }} onClick={resetPanels}>
+                Reset Panel Sizes{" "}
+              </button>
+            </Col>
+          </Row>
         </Card.Header>
         <Card.Body>
           <PanelGroup
@@ -37,7 +50,7 @@ export default function UnmanglerCombo({
             direction="horizontal"
             ref={panelGroupRef}
           >
-            <Panel defaultSize={20} >
+            <Panel defaultSize={20}>
               <HelpPanel
                 setAnalysisResults={setAnalysisResults}
                 toggleWord={toggleWord}
@@ -49,7 +62,7 @@ export default function UnmanglerCombo({
             <PanelResizeHandle
               style={{ width: "5px", backgroundColor: "grey" }}
             />
-            <Panel defaultSize={30} >
+            <Panel defaultSize={30}>
               <DataEntryPanel
                 ignoreDescriptions={ignoreDescriptions}
                 setIgnoreDescriptions={setIgnoreDescriptions}
@@ -63,7 +76,7 @@ export default function UnmanglerCombo({
             <PanelResizeHandle
               style={{ width: "5px", backgroundColor: "grey" }}
             />
-            <Panel defaultSize={30} >
+            <Panel defaultSize={30}>
               <ResultsPanel
                 ignoreDescriptions={ignoreDescriptions}
                 analysisResults={analysisResults}

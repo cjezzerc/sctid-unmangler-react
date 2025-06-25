@@ -43,8 +43,7 @@ export default function HelpPanel({}) {
             your codes that have been corrupted by Excel!
           </p>
           <h1>QuickStart</h1>
-          <p class="p_help">
-            <ul>
+            <ul style={{marginLeft:"0.75rem", textAlign: "left"}}>
               <li>Click "Get example data" </li>
               <li>Click "Check Codes" </li>
               <li>
@@ -58,33 +57,32 @@ export default function HelpPanel({}) {
                     margin: "auto",
                     paddingInline: "5px",
                   }}
-                ></img>{" "}
+                ></img>
                 are examples of codes that have been corrupted and restored.
               </li>
             </ul>
-          </p>
           {/*  */}
           {/* How to load in your data */}
           {/*  */}
           <h1>How to load in your data</h1>
-          <p class="p_help">
+          <p className="p_help">
             Enter or paste a list of SNOMED codes (or even just a single code)
             in box in the data entry panel.
           </p>
-          <p class="p_help">
+          <p className="p_help">
             Each line of entered data can contain extra text after the code. And
             if you have terms (i.e. descriptions) inS your entered data this can
             be useful so that you can compare the reconstructed code's preferred
             term (using the "Show rest of each input line" in the Analysis
             panel).
           </p>
-          <p class="p_help">
+          <p className="p_help">
             The app uses white space, tab characters or the "|" symbol to mark
             the end of the code. Pasting columns from a spreadsheet should work,
             as should entering data in the form such as 125605004|Fracture of
             bone (disorder)|.
           </p>
-          <p class="p_help">
+          <p className="p_help">
             The example data button will load in a set of data that shows
             various possibilities.
           </p>
@@ -92,18 +90,20 @@ export default function HelpPanel({}) {
           {/* How to run the check */}
           {/*  */}
           <h1>How to run the check</h1>
-          <p class="p_help">
+          <p className="p_help">
             Once the data has been entered click "Check Codes".
           </p>
-          <p class="p_help">One checkbox controls how the check is run:</p>
+          <p className="p_help">One checkbox controls how the check is run:</p>
 
           {/*  */}
           {/* table: data entry buttons and checkboxes */}
           {/*  */}
           <Table striped bordered className="smaller_font">
             <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
-              <td style={{ borderWidth: 3 }}> Checkbox</td>
-              <td style={{ borderWidth: 3 }}> Explanation</td>
+              <tr>
+                <td style={{ borderWidth: 3 }}> Checkbox</td>
+                <td style={{ borderWidth: 3 }}> Explanation</td>
+              </tr>
             </thead>
             <tbody>
               <tr>
@@ -131,7 +131,7 @@ export default function HelpPanel({}) {
           {/* Understanding the analysis */}
           {/*  */}
           <h1>Understanding the analysis</h1>
-          <p class="p_help pt">
+          <p className="p_help pt">
             Using the "Lines to show:" checkboxes you can choose which selection
             of lines from the input data are shown:
           </p>
@@ -141,8 +141,10 @@ export default function HelpPanel({}) {
             {/*  */}
             <Table striped bordered className="smaller_font">
               <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
-                <td style={{ borderWidth: 3 }}> Checkbox</td>
-                <td style={{ borderWidth: 3 }}> Explanation</td>
+                <tr>
+                  <td style={{ borderWidth: 3 }}> Checkbox</td>
+                  <td style={{ borderWidth: 3 }}> Explanation</td>
+                </tr>
               </thead>
               <tbody>
                 <tr>
@@ -180,7 +182,7 @@ export default function HelpPanel({}) {
               </tbody>
             </Table>
           </Row>
-          <p class="p_help pt">
+          <p className="p_help pt">
             A further checkbox allows an extra column to be shown:
           </p>
           <Row>
@@ -189,8 +191,10 @@ export default function HelpPanel({}) {
             {/*  */}
             <Table striped bordered className="smaller_font">
               <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
-                <td style={{ borderWidth: 3 }}> Checkbox</td>
-                <td style={{ borderWidth: 3 }}> Explanation</td>
+                <tr>
+                  <th style={{ borderWidth: 3 }}> Checkbox</th>
+                  <th style={{ borderWidth: 3 }}> Explanation</th>
+                </tr>
               </thead>
               <tbody>
                 <tr>
@@ -211,16 +215,20 @@ export default function HelpPanel({}) {
                   </tr> */}
               </tbody>
             </Table>
-            <p class="p_help">The Status icons have the following meanings:</p>
+            <p className="p_help">
+              The Status icons have the following meanings:
+            </p>
             {/*  */}
             {/* table: status icons */}
             {/*  */}
             <Table striped bordered className="smaller_font">
               <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
-                <td style={{ borderWidth: 3 }}> Reconstruction Status</td>
-                <td style={{ borderWidth: 3 }}> Brief name </td>
-                <td style={{ borderWidth: 3 }}> Explanation</td>
-                <td style={{ borderWidth: 3 }}> Suggested action</td>
+                <tr>
+                  <td style={{ borderWidth: 3 }}> Reconstruction Status</td>
+                  <td style={{ borderWidth: 3 }}> Brief name </td>
+                  <td style={{ borderWidth: 3 }}> Explanation</td>
+                  <td style={{ borderWidth: 3 }}> Suggested action</td>
+                </tr>
               </thead>
               <tbody>
                 {/* possible_corruption_unambig */}
@@ -356,7 +364,7 @@ export default function HelpPanel({}) {
                 </tr>
               </tbody>
             </Table>
-            <p class="p_help">
+            <p className="p_help">
               The "Valid format code?" icons have the following meanings:
             </p>
 
@@ -365,8 +373,10 @@ export default function HelpPanel({}) {
             {/*  */}
             <Table striped bordered className="smaller_font">
               <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
-                <td style={{ borderWidth: 3 }}> Status</td>
-                <td style={{ borderWidth: 3 }}> Explanation</td>
+                <tr>
+                  <td style={{ borderWidth: 3 }}> Status</td>
+                  <td style={{ borderWidth: 3 }}> Explanation</td>
+                </tr>
               </thead>
               <tbody>
                 {/* possible_corruption_unambig */}

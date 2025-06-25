@@ -6,10 +6,11 @@ import { Row, Col } from "react-bootstrap";
 import "./App.css";
 
 import UnmanglerCombo from "./components/unmanglercombo";
+import TermsModal from "./components/ts_and_cs";
 
 function App() {
   const [ignoreDescriptions, setIgnoreDescriptions] = useState(true);
-  const [analysisResults, setAnalysisResults] = useState({ check_results: [] });
+  const [analysisResults, setAnalysisResults] = useState({ check_results: [], metadata: {snomed_release:undefined} });
   const [enteredData, setEnteredData] = useState("");
   const [exampleData, setExampleData] = useState(
     `1097811000000100	Arterial oxygen saturation breathing room air at rest (observable entity)
@@ -35,6 +36,7 @@ SNO63700574768824
   return (
     <>
       <Container fluid className="bg-light">
+        <TermsModal />
         <Row style={{ height: "95vh" }}>
           <Col xs={12}>
             <UnmanglerCombo
