@@ -12,6 +12,7 @@ function App() {
   const [ignoreDescriptions, setIgnoreDescriptions] = useState(true);
   const [analysisResults, setAnalysisResults] = useState({ check_results: [], metadata: {snomed_release:undefined} });
   const [enteredData, setEnteredData] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false)
   const [exampleData, setExampleData] = useState(
     `1097811000000100	Arterial oxygen saturation breathing room air at rest (observable entity)
 11805901000001100
@@ -32,11 +33,11 @@ SNO63700574768824
 28760821000119100  Made up; not Valid ; R-CID is same
 1120381000000110 Swine influenz contact (16 digit description ID)`
   );
-
+console.log(termsAccepted)
   return (
     <>
       <Container fluid className="bg-light">
-        <TermsModal />
+        <TermsModal termsAccepted={termsAccepted} setTermsAccepted={setTermsAccepted}/>
         <Row style={{ height: "95vh" }}>
           <Col xs={12}>
             <UnmanglerCombo
@@ -47,6 +48,8 @@ SNO63700574768824
               enteredData={enteredData}
               setEnteredData={setEnteredData}
               exampleData={exampleData}
+              termsAccepted={termsAccepted}
+              setTermsAccepted={setTermsAccepted}
             />
           </Col>
         </Row>

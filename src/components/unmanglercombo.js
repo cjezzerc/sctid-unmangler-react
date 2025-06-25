@@ -15,13 +15,19 @@ export default function UnmanglerCombo({
   enteredData,
   setEnteredData,
   exampleData,
+  termsAccepted,
+  setTermsAccepted,
 }) {
+  console.log(analysisResults)
   const panelGroupRef = useRef(null);
 
   const resetPanels = () => {
-    // Reset to original sizes (e.g., 50/50 split)
-    // panelGroupRef.current.setLayout([20, 30, 30]);
     panelGroupRef.current.setLayout([26, 37, 37]);
+  };
+
+  const reset_ts_and_cs = () => {
+    // localStorage.removeItem("terms_accepted");
+    setTermsAccepted(false)
   };
   return (
     <Container fluid>
@@ -40,6 +46,9 @@ export default function UnmanglerCombo({
             <Col className="col-2">
               <button style={{ padding: "2px" }} onClick={resetPanels}>
                 Reset Panel Sizes{" "}
+              </button>
+              <button style={{ padding: "2px", marginLeft: "20px" }} onClick={reset_ts_and_cs}>
+                T+Cs
               </button>
             </Col>
           </Row>

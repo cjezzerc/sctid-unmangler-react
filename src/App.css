@@ -106,5 +106,9 @@ h1 {
   text-align: left;
 }
 
+.tcmodal {
+  width:1000px;
+  max-width: 1000px;
+}
 
 
