@@ -110,7 +110,7 @@ export default function ResultsPanel({
   ))();
 
   return (
-    <Card className="myapp_card" style={{ height: "87vh", overflow: "auto" }}>
+    <Card className="myapp_card" style={{ height: "82vh", overflow: "auto" }}>
       <Card.Header className="myapp_card_header_2">Analysis
         <RefreshRequiredMessage
             inputsAsRun={inputsAsRun}

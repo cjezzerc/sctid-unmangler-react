@@ -13,7 +13,7 @@ import { ExampleDatasetSelector } from "./example_dataset_selector";
 
 export default function HelpPanel({setEnteredData}) {
   return (
-    <Card className="myapp_card" style={{ height: "87vh" }}>
+    <Card className="myapp_card" style={{ height: "82vh" }}>
       <Card.Header className="myapp_card_header_2">Help</Card.Header>
       <img
         src={ximg}
@@ -58,7 +58,7 @@ export default function HelpPanel({setEnteredData}) {
           <h1>How to load in your data</h1>
           <p className="p_help">
             Enter or paste a list of SNOMED codes (or even just a single code)
-            in box in the data entry panel.
+            in the box in the data entry panel.
           </p>
           <p className="p_help">
             Each line of entered data can contain extra text after the code. If

@@ -7,6 +7,6 @@ export function RefreshRequiredMessage({
     ignoreDescriptions != inputsAsRun.ignoreDescriptions ||
     enteredData != inputsAsRun.enteredData
   ) {
-    return <div style={{color:"grey"}}> (Click "Check codes" to refresh) </div>;
+    return <div style={{color:"red"}}> (Click "Check codes" to refresh) </div>;
   }
 }

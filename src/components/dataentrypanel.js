@@ -72,16 +72,16 @@ export default function DataEntryPanel({
   }
 
   return (
-    <Card className="myapp_card" style={{ height: "87vh", overflow: "auto" }}>
+    <Card className="myapp_card" style={{ height: "82vh", overflow: "auto" }}>
       <Card.Header className="myapp_card_header_2">Data Entry</Card.Header>
       <Card.Body>
-        <Row style={{ padding: "10px" }}>
+        {/* <Row style={{ padding: "10px" }}>
           <Col className="align-self-center">
             <div>
               Enter or paste SNOMED codes in box below, then click "Check Codes"
             </div>
           </Col>
-        </Row>
+        </Row> */}
         <Row style={{ padding: "10px" }}>
           <Col xs="auto" className="align-self-center">
             {/* <div
@@ -135,8 +135,8 @@ export default function DataEntryPanel({
             <Form.Control
               as="textarea"
               className="smaller_font"
-              rows={20}
-              placeholder="Enter/paste data here (or click the 'Get Example Data' button).."
+              rows={27}
+              placeholder="Enter/paste data here (or select an example data set from the dropdown in the Help panel)"
               value={enteredData}
               // onChange={(event) => setEnteredData(event.target.value)}
               onChange={data_entered_function}

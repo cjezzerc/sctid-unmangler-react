@@ -29,11 +29,11 @@ export default function UnmanglerCombo({
   };
   return (
     <Container fluid>
-      <Card className="myapp_card" style={{ height: "95vh" }}>
+      <Card className="myapp_card" style={{ height: "90vh" }}>
         <Card.Header className="myapp_card_header">
           <Row className="w-100">
-            <Col className="col-7">SNOMED CT Code Restorer</Col>
-            <Col className="col-2">
+            <Col className="col-6">SNOMED CT Code Restorer</Col>
+            <Col className="col-3">
               <SnomedVersion
                 analysisResults={analysisResults}
                 setAnalysisResults={setAnalysisResults}
