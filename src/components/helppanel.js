@@ -8,8 +8,10 @@ import code_restorer_banner from "../assets/code_restorer_banner.png";
 const ximg = code_restorer_banner;
 import icon_pcu_url from "../assets/possible_corruption_unambig.svg?url";
 const icon_pcu_url_img = icon_pcu_url;
+import { ExampleDatasetSelector } from "./example_dataset_selector";
 
-export default function HelpPanel({}) {
+
+export default function HelpPanel({setEnteredData}) {
   return (
     <Card className="myapp_card" style={{ height: "87vh" }}>
       <Card.Header className="myapp_card_header_2">Help</Card.Header>
@@ -32,7 +34,8 @@ export default function HelpPanel({}) {
           </p>
           <h1>QuickStart</h1>
           <ul style={{ marginLeft: "0.75rem", textAlign: "left" }}>
-            <li>Click "Example datasets" and select "Simple data" </li>
+            <li>Select "Simple data" from this menu </li>
+            <ExampleDatasetSelector setEnteredData={setEnteredData}> </ExampleDatasetSelector>
             <li>Click "Check codes" </li>
             <li>
               Inspect the analysis. Codes marked with

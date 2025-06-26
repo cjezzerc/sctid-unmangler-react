@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Card, Container, Col, Row } from "react-bootstrap";
+import { Card, Container, Col, Row, Button } from "react-bootstrap";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import DataEntryPanel from "./dataentrypanel";
 import HelpPanel from "./helppanel";
@@ -33,21 +33,23 @@ export default function UnmanglerCombo({
         <Card.Header className="myapp_card_header">
           <Row className="w-100">
             <Col className="col-7">SNOMED CT Code Restorer</Col>
-            <Col className="col-3">
+            <Col className="col-2">
               <SnomedVersion
                 analysisResults={analysisResults}
                 setAnalysisResults={setAnalysisResults}
               >
-                {" "}
               </SnomedVersion>
             </Col>
-            <Col className="col-2">
-              <button style={{ padding: "2px" }} onClick={resetPanels}>
-                Reset Panel Sizes{" "}
-              </button>
-              <button style={{ padding: "2px", marginLeft: "20px" }} onClick={reset_ts_and_cs}>
+            <Col className="col-3">
+              <Button variant="secondary" style={{ padding: "2px" }} onClick={resetPanels}>
+                Reset Panel Sizes
+              </Button>
+              <Button variant="secondary" style={{ padding: "2px", marginLeft: "20px" }} onClick={reset_ts_and_cs}>
                 T+Cs
-              </button>
+              </Button>
+              <Button href="mailto:setchecks@jeremycraven.org.uk" target="#"  variant="secondary" style={{ padding: "2px", marginLeft: "20px" }} >
+                Feedback
+              </Button>
             </Col>
           </Row>
         </Card.Header>
@@ -58,7 +60,7 @@ export default function UnmanglerCombo({
             ref={panelGroupRef}
           >
             <Panel defaultSize={20}>
-              <HelpPanel
+              <HelpPanel setEnteredData={setEnteredData}
               />
             </Panel>
             <PanelResizeHandle

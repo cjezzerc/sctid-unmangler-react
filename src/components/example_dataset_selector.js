@@ -27,9 +27,10 @@ export function ExampleDatasetSelector({setEnteredData}) {
       <DropdownButton
         id="dataset-dropdown"
         // title={selectedDataset ? `Examples: ${selectedDataset.name}` : "Select example dataset"}
-        title="Example datasets"
+        title="Example data sets:"
         onSelect={handleSelect}
-        variant="primary"
+        variant="secondary"
+        style={{padding:"0px", margin:"10px"}}
       >
         {Object.entries(datasets).map(([key, value]) => (
           <Dropdown.Item key={key} eventKey={key}>
