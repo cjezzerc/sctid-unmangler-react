@@ -135,7 +135,7 @@ export default function DataEntryPanel({
             <Form.Control
               as="textarea"
               className="smaller_font"
-              rows={27}
+              rows={25}
               placeholder="Enter/paste data here (or select an example data set from the dropdown in the Help panel)"
               value={enteredData}
               // onChange={(event) => setEnteredData(event.target.value)}
