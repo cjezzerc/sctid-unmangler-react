@@ -108,8 +108,8 @@ export default function HelpPanel({}) {
                   are possible reconstructions.
                   <br></br>
                   <br></br>
-                  N.B. If you change this checkbox you must click "Check Codes"
-                  again
+                  <b>N.B. If you change this checkbox you must click "Check Codes"
+                  again</b>
                 </td>
               </tr>
             </tbody>

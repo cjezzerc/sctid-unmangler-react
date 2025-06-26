@@ -42,11 +42,20 @@ export default function TermsModal({termsAccepted, setTermsAccepted}) {
           set (or other data) being used to record or assess care data.
         </p>
         <h2>Limitations</h2>
-        <p>
+        <ul>
+        <li>
           The application is developed for use in Health & Care settings within
           the UK, and therefore makes use of published releases of the SNOMED CT
           UK Edition only. 
-        </p>
+        </li>
+        <li>
+          The UK Edition used may not be the most recent. The edition used is indicated in the application.
+        </li>
+        <li>
+          Only reconstructed codes are checked for existence within the SNOMED release.
+          <i> Where codes provided are already valid no such checking is done. </i>
+        </li>
+        <li> No analysis is made of whether any codes are active or inactive</li>
         {/* <p>
           The application is running on restricted cloud resources, and as such
           the performance of the tool to handle multiple simultaneous users is
@@ -55,6 +64,7 @@ export default function TermsModal({termsAccepted, setTermsAccepted}) {
           3000 concepts). Files towards the upper end of this range may impact
           the performance of the tool.
         </p> */}
+        </ul>
         <h2 >Licencing</h2>
         <p>
           By using this application, you accept the licence agreement for the
@@ -99,7 +109,7 @@ export default function TermsModal({termsAccepted, setTermsAccepted}) {
           </li>
           <li>
             make no assumption that your access to this application will be from
-            within the UK, and is not responsible or liable for your compliance
+            within the UK, and are not responsible or liable for your compliance
             with any local laws appropriate to the geographic area from which
             you seek to access this application.
           </li>
