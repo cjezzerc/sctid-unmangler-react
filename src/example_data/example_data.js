@@ -22,7 +22,7 @@ SNO63700574768824
 4736431000001100 Made up; valid but not in release; R-CID is the same(16)
 29760821000119100  Made up; Valid but not in release; R-CID is same
 28760821000119100  Made up; not Valid ; R-CID is same
-1120381000000110 Swine influenz contact (16 digit description ID)`;
+1120381000000110 Swine influenza contact (16 digit description ID)`;
 
 export const contact_dermatitis = `10676871000119100	Allergic contact dermatitis caused by chemical
 762383000	Allergic contact dermatitis caused by cutting oil

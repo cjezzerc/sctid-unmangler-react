@@ -32,7 +32,7 @@ export default function HelpPanel({}) {
           </p>
           <h1>QuickStart</h1>
             <ul style={{marginLeft:"0.75rem", textAlign: "left"}}>
-              <li>Click "Examples: Simple data" </li>
+              <li>Click "Example datasets" and select "Simple data" </li>
               <li>Click "Check codes" </li>
               <li>
                 Inspect the analysis. Codes marked with
@@ -109,7 +109,7 @@ export default function HelpPanel({}) {
                   <br></br>
                   <br></br>
                   <b>N.B. If you change this checkbox you must click "Check Codes"
-                  again</b>
+                  again to update the analysis</b>
                 </td>
               </tr>
             </tbody>
@@ -173,11 +173,10 @@ export default function HelpPanel({}) {
           <p className="p_help pt">
             A further checkbox allows an extra column to be shown:
           </p>
-          <Row>
             {/*  */}
             {/* table: show rest of line checkboxes */}
             {/*  */}
-            <Table striped bordered className="smaller_font">
+            {/* <Table striped bordered className="smaller_font">
               <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
                 <tr>
                   <th style={{ borderWidth: 3 }}> Checkbox</th>
@@ -193,7 +192,7 @@ export default function HelpPanel({}) {
                     code. If terms have been entered alongside the codes this
                     facilitates comparison with the reconstructed terms.
                   </td>
-                </tr>
+                </tr> */}
                 {/* <tr>
                     <td>Show explanations</td>
                     <td>
@@ -201,8 +200,8 @@ export default function HelpPanel({}) {
                       brief reminder of the meaning of the icon.
                     </td>
                   </tr> */}
-              </tbody>
-            </Table>
+              {/* </tbody>
+            </Table> */}
             <p className="p_help">
               The Status icons have the following meanings:
             </p>
@@ -401,7 +400,7 @@ export default function HelpPanel({}) {
                 </tr>
               </tbody>
             </Table>
-          </Row>
+          
         </Row>
       </Card.Body>
     </Card>

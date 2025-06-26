@@ -7,7 +7,7 @@ import {
   messy_data,
   contact_dermatitis,
 } from "../example_data/example_data";
-import { DatasetSelector } from "./dataselector";
+import { ExampleDatasetSelector } from "./example_dataset_selector";
 export default function DataEntryPanel({
   ignoreDescriptions,
   setIgnoreDescriptions,
@@ -15,6 +15,8 @@ export default function DataEntryPanel({
   enteredData,
   setEnteredData,
   exampleData,
+  inputsAsRun,
+  setInputsAsRun,
 }) {
   // const [ignoreDescriptions, setIgnoreDescriptions] = useState(true);
 
@@ -33,7 +35,16 @@ export default function DataEntryPanel({
     );
   }
 
+  function data_entered_function(event) {
+    setEnteredData(event.target.value);
+    // setInputsAsRun({...inputsAsRun, enteredData: true})
+  }
+
   function submitfunction() {
+    setInputsAsRun({
+      enteredData: enteredData,
+      ignoreDescriptions: ignoreDescriptions,
+    });
     // requires line in .env.local such as
     // VITE_API_URL='http://localhost:8000'
     fetch(import.meta.env.VITE_API_URL + "/receive_entered_data", {
@@ -88,6 +99,10 @@ export default function DataEntryPanel({
                 variant="outline-secondary"
                 className="myapp_button"
                 onClick={submitfunction}
+                disabled={
+                  ignoreDescriptions == inputsAsRun.ignoreDescriptions &&
+                  enteredData == inputsAsRun.enteredData
+                }
               >
                 Check codes
               </Button>
@@ -106,7 +121,7 @@ export default function DataEntryPanel({
             </Button>
           </Col> */}
           <Col xs="auto" className="align-self-center">
-            <DatasetSelector setEnteredData={setEnteredData}></DatasetSelector>
+            <ExampleDatasetSelector setEnteredData={setEnteredData}></ExampleDatasetSelector>
           </Col>
 
           {/* <Col xs="auto" className="align-self-center">
@@ -128,12 +143,13 @@ export default function DataEntryPanel({
               rows={20}
               placeholder="Enter/paste data here (or click the 'Get Example Data' button).."
               value={enteredData}
-              onChange={(event) => setEnteredData(event.target.value)}
+              // onChange={(event) => setEnteredData(event.target.value)}
+              onChange={data_entered_function}
               style={{
                 borderWidth: "5px",
                 fontFamily: "monospace",
                 whiteSpace: "pre",
-                tabSize:20
+                tabSize: 20,
               }}
             />
           </Form.Group>

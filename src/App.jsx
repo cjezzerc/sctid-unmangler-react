@@ -9,24 +9,36 @@ import UnmanglerCombo from "./components/unmanglercombo";
 import TermsModal from "./components/ts_and_cs";
 
 function App() {
-  const [ignoreDescriptions, setIgnoreDescriptions] = useState(true);
-  const [analysisResults, setAnalysisResults] = useState({ check_results: [], metadata: {snomed_release:undefined} });
   const [enteredData, setEnteredData] = useState("");
-  const [termsAccepted, setTermsAccepted] = useState(false)
-  
+  const [ignoreDescriptions, setIgnoreDescriptions] = useState(true);
+  const [inputsAsRun, setInputsAsRun] = useState({
+    ignoreDescriptions: true,
+    enteredData: "",
+  });
+  const [analysisResults, setAnalysisResults] = useState({
+    check_results: [],
+    metadata: { snomed_release: undefined },
+  });
+  const [termsAccepted, setTermsAccepted] = useState(false);
+
   return (
     <>
       <Container fluid className="bg-light">
-        <TermsModal termsAccepted={termsAccepted} setTermsAccepted={setTermsAccepted}/>
+        <TermsModal
+          termsAccepted={termsAccepted}
+          setTermsAccepted={setTermsAccepted}
+        />
         <Row style={{ height: "95vh" }}>
           <Col xs={12}>
             <UnmanglerCombo
-              ignoreDescriptions={ignoreDescriptions}
-              setIgnoreDescriptions={setIgnoreDescriptions}
-              analysisResults={analysisResults}
-              setAnalysisResults={setAnalysisResults}
               enteredData={enteredData}
               setEnteredData={setEnteredData}
+              ignoreDescriptions={ignoreDescriptions}
+              setIgnoreDescriptions={setIgnoreDescriptions}
+              inputsAsRun={inputsAsRun}
+              setInputsAsRun={setInputsAsRun}
+              analysisResults={analysisResults}
+              setAnalysisResults={setAnalysisResults}
               termsAccepted={termsAccepted}
               setTermsAccepted={setTermsAccepted}
             />

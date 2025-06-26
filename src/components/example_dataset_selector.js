@@ -12,8 +12,8 @@ const datasets = {
   dataset3: { name: 'Long data', data: contact_dermatitis },
 };
 
-export function DatasetSelector({setEnteredData}) {
-  const [selectedKey, setSelectedKey] = useState('dataset1');
+export function ExampleDatasetSelector({setEnteredData}) {
+  const [selectedKey, setSelectedKey] = useState(null);
 
   const handleSelect = (key) => {
     setSelectedKey(key);
@@ -26,7 +26,8 @@ export function DatasetSelector({setEnteredData}) {
     <div>
       <DropdownButton
         id="dataset-dropdown"
-        title={`Examples: ${selectedDataset.name}`}
+        // title={selectedDataset ? `Examples: ${selectedDataset.name}` : "Select example dataset"}
+        title="Example datasets"
         onSelect={handleSelect}
         variant="primary"
       >
@@ -36,11 +37,6 @@ export function DatasetSelector({setEnteredData}) {
           </Dropdown.Item>
         ))}
       </DropdownButton>
-
-      {/* <div className="mt-3">
-        <h5>Selected: {selectedDataset.name}</h5>
-        <pre>{JSON.stringify(selectedDataset.data, null, 2)}</pre>
-      </div> */}
     </div>
   );
 }

@@ -3,10 +3,16 @@ import { useState } from "react";
 import { Card, Table, Row, Col } from "react-bootstrap";
 import { ResultsButtons } from "./resultsbuttons";
 import { status_icons, true_false_icons } from "./outcome_icons";
+import { RefreshRequiredMessage } from "./refresh_required_message";
 
-export default function ResultsPanel({ analysisResults, ignoreDescriptions }) {
+export default function ResultsPanel({
+  analysisResults,
+  ignoreDescriptions,
+  enteredData,
+  inputsAsRun,
+}) {
   const [flags, setFlags] = useState({
-    show_rest_of_line: false,
+    show_rest_of_line: true,
     only_show_mangled: false,
     show_explanation: false,
     concepts_to_show: "all", // "all"|"invalid"|"mangled"|"mangled_non_silent"
@@ -72,17 +78,18 @@ export default function ResultsPanel({ analysisResults, ignoreDescriptions }) {
             </b>
           </td>
           <td>{data.corruption_analysis.r_cid_pt}</td>
-          
-        {!ignoreDescriptions && (<td>
-            {data.corruption_analysis.r_did_stem}
-            <b>
-              <u>{data.corruption_analysis.r_did_trailing_zeroes}</u>
-            </b>
-          </td>
-)}
-          {!ignoreDescriptions && (
-          <td>{data.corruption_analysis.r_did_term}</td>)}
-        
+
+          {!inputsAsRun.ignoreDescriptions && (
+            <td>
+              {data.corruption_analysis.r_did_stem}
+              <b>
+                <u>{data.corruption_analysis.r_did_trailing_zeroes}</u>
+              </b>
+            </td>
+          )}
+          {!inputsAsRun.ignoreDescriptions && (
+            <td>{data.corruption_analysis.r_did_term}</td>
+          )}
         </tr>
       );
     }
@@ -97,17 +104,29 @@ export default function ResultsPanel({ analysisResults, ignoreDescriptions }) {
       {flags.show_explanation && <th>Explanation</th>}
       <th>Reconstructed Concept Id</th>
       <th>Reconstructed Concept Id Preferred Term</th>
-      {!ignoreDescriptions && <th>Reconstructed Description Id</th>}
-      {!ignoreDescriptions && <th> Reconstructed Description Term</th>}
+      {!inputsAsRun.ignoreDescriptions && <th>Reconstructed Description Id</th>}
+      {!inputsAsRun.ignoreDescriptions && <th> Reconstructed Description Term</th>}
     </tr>
   ))();
 
   return (
     <Card className="myapp_card" style={{ height: "87vh", overflow: "auto" }}>
-      <Card.Header className="myapp_card_header_2">Analysis</Card.Header>
+      <Card.Header className="myapp_card_header_2">Analysis
+        <RefreshRequiredMessage
+            inputsAsRun={inputsAsRun}
+            ignoreDescriptions={ignoreDescriptions}
+            enteredData={enteredData}
+          ></RefreshRequiredMessage>
+      </Card.Header>
       <Card.Body>
         <Row className="align-items-center" style={{ margin: "3px" }}>
-          <ResultsButtons setFlags={setFlags} flags={flags}></ResultsButtons>
+          <ResultsButtons
+            setFlags={setFlags}
+            flags={flags}
+            enteredData={enteredData}
+            inputsAsRun={inputsAsRun}
+            ignoreDescriptions={ignoreDescriptions}
+          ></ResultsButtons>
         </Row>
 
         <Row>

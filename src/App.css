@@ -27,6 +27,13 @@
   display: inline;
   width: auto;
   margin-right: 10px !important;
+  background-color: green !important;
+  color: white !important;
+}
+
+.myapp_button:disabled {
+  background-color: white !important;
+  color: grey !important;
 }
 
 .form-check-input[type="checkbox"] {

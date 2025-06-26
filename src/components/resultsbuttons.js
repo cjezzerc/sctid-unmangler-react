@@ -1,7 +1,7 @@
 import { Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
-function ConceptsToShowButtons({ setFlags, flags }) {
+function ConceptsToShowButtons({ setFlags, flags, inputsAsRun }) {
   function handleChange(event) {
     setFlags({ ...flags, concepts_to_show: event.target.value });
   }
@@ -17,7 +17,9 @@ function ConceptsToShowButtons({ setFlags, flags }) {
         marginBottom: "10px",
       }}
     >
-      <div style={{ display: "inline", paddingRight:"10px" }}>Lines to show:</div>
+      <div style={{ display: "inline", paddingRight: "10px" }}>
+        Lines to show:
+      </div>
       <Form.Check
         inline
         label="All"
@@ -58,7 +60,6 @@ function ConceptsToShowButtons({ setFlags, flags }) {
         value={"invalid"}
         onChange={handleChange}
       />
-      
     </Form.Group>
   );
 }
@@ -95,7 +96,26 @@ export function ExplanationSwitch({ setFlags, flags }) {
   );
 }
 
-export function ResultsButtons({ setFlags, flags }) {
+// export function RefreshRequiredMessage({
+//   inputsAsRun,
+//   ignoreDescriptions,
+//   enteredData,
+// }) {
+//   if (
+//     ignoreDescriptions != inputsAsRun.ignoreDescriptions ||
+//     enteredData != inputsAsRun.enteredData
+//   ) {
+//     return <span style={{display:"inline"}}> Click "Check codes" to refresh </span>;
+//   }
+// }
+
+export function ResultsButtons({
+  setFlags,
+  flags,
+  inputsAsRun,
+  ignoreDescriptions,
+  enteredData
+}) {
   return (
     <Form>
       <Row className="align-items-center">
@@ -105,15 +125,22 @@ export function ResultsButtons({ setFlags, flags }) {
             flags={flags}
           ></ConceptsToShowButtons>
         </Col>
+        </Row><Row>
         <Col xs="auto">
-          <RestOfLineSwitch
+          {/* <RestOfLineSwitch
             setFlags={setFlags}
             flags={flags}
           ></RestOfLineSwitch>
+          <Col xs="auto"></Col> */}
           {/* <ExplanationSwitch
             setFlags={setFlags}
             flags={flags}
           ></ExplanationSwitch> */}
+          {/* <RefreshRequiredMessage
+            inputsAsRun={inputsAsRun}
+            ignoreDescriptions={ignoreDescriptions}
+            enteredData={enteredData}
+          ></RefreshRequiredMessage> */}
         </Col>
       </Row>
     </Form>

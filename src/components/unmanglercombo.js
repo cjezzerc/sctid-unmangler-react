@@ -13,6 +13,8 @@ export default function UnmanglerCombo({
   setAnalysisResults,
   enteredData,
   setEnteredData,
+  inputsAsRun,
+  setInputsAsRun,
   setTermsAccepted,
 }) {
   const panelGroupRef = useRef(null);
@@ -69,6 +71,8 @@ export default function UnmanglerCombo({
                 setAnalysisResults={setAnalysisResults}
                 enteredData={enteredData}
                 setEnteredData={setEnteredData}
+                inputsAsRun={inputsAsRun}
+                setInputsAsRun={setInputsAsRun}
               />
             </Panel>
             <PanelResizeHandle
@@ -79,6 +83,7 @@ export default function UnmanglerCombo({
                 ignoreDescriptions={ignoreDescriptions}
                 analysisResults={analysisResults}
                 enteredData={enteredData}
+                inputsAsRun={inputsAsRun}
               />
             </Panel>
           </PanelGroup>
