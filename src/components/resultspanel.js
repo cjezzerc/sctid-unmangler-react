@@ -102,9 +102,9 @@ export default function ResultsPanel({
       <th>Valid format code?</th>
       <th>Reconstruction Status</th>
       {flags.show_explanation && <th>Explanation</th>}
-      <th>Reconstructed Concept Id</th>
-      <th>Reconstructed Concept Id Preferred Term</th>
-      {!inputsAsRun.ignoreDescriptions && <th>Reconstructed Description Id</th>}
+      <th>Reconstructed Concept&nbsp;Id</th>
+      <th>Reconstructed Concept Preferred Term</th>
+      {!inputsAsRun.ignoreDescriptions && <th>Reconstructed Description&nbsp;Id</th>}
       {!inputsAsRun.ignoreDescriptions && <th> Reconstructed Description Term</th>}
     </tr>
   ))();

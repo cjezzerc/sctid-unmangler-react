@@ -10,8 +10,7 @@ import icon_pcu_url from "../assets/possible_corruption_unambig.svg?url";
 const icon_pcu_url_img = icon_pcu_url;
 import { ExampleDatasetSelector } from "./example_dataset_selector";
 
-
-export default function HelpPanel({setEnteredData}) {
+export default function HelpPanel({ setEnteredData }) {
   return (
     <Card className="myapp_card" style={{ height: "82vh" }}>
       <Card.Header className="myapp_card_header_2">Help</Card.Header>
@@ -35,7 +34,9 @@ export default function HelpPanel({setEnteredData}) {
           <h1>QuickStart</h1>
           <ul style={{ marginLeft: "0.75rem", textAlign: "left" }}>
             <li>Select "Simple data" from this menu </li>
-            <ExampleDatasetSelector setEnteredData={setEnteredData}> </ExampleDatasetSelector>
+            <ExampleDatasetSelector setEnteredData={setEnteredData}>
+              {" "}
+            </ExampleDatasetSelector>
             <li>Click "Check codes" </li>
             <li>
               Inspect the analysis. Codes marked with
@@ -64,19 +65,18 @@ export default function HelpPanel({setEnteredData}) {
             Each line of entered data can contain extra text after the code. If
             you have terms (i.e. descriptions) in your entered data this can be
             useful so that you can compare the reconstructed code's preferred
-            term (using the "Show rest of each input line" in the Analysis
-            panel).
+            term (see the "Rest of line" column in the Analysis table).
           </p>
           <p className="p_help">
             The app uses white space, tab characters or the "|" symbol to mark
             the end of the code. Pasting columns from a spreadsheet should work,
-            as should entering data in the form such as 125605004|Fracture of
-            bone (disorder)|.
+            as should entering data in the form such as <br />
+            <pre> 125605004|Fracture of bone (disorder)|</pre>
           </p>
-          <p className="p_help">
+          {/* <p className="p_help">
             The example data button will load in a set of data that shows
             various possibilities.
-          </p>
+          </p> */}
           {/*  */}
           {/* How to run the check */}
           {/*  */}
@@ -110,8 +110,8 @@ export default function HelpPanel({setEnteredData}) {
                     If you wish to consider the possibility that codes may be
                     Description Ids, uncheck the "Ignore Description Ids" box.
                     With this setting a small number of reconstructions may be
-                    ambiguous, i.e. where both a Concept Id <i>and</i> a Description
-                    Id are possible reconstructions.
+                    ambiguous, i.e. where both a Concept Id <i>and</i> a
+                    Description Id are possible reconstructions.
                   </p>
                   <p className="p_help">
                     <b>
@@ -130,7 +130,8 @@ export default function HelpPanel({setEnteredData}) {
           <h1>Understanding the analysis</h1>
 
           <p className="p_help">
-            In a list of codes where the only problem is corruption by Excel the most common outcomes will be:
+            In a list of codes where the only problem is corruption by Excel the
+            most common outcomes will be:
           </p>
 
           {/*  */}
@@ -146,7 +147,7 @@ export default function HelpPanel({setEnteredData}) {
             </thead>
             <tbody>
               {/* possible_corruption_unambig */}
-              
+
               {/* any_corruption_is_silent */}
               <tr>
                 <td>
@@ -161,23 +162,23 @@ export default function HelpPanel({setEnteredData}) {
                     alt=""
                   ></img>
                 </td>
-                <td><p >
-                  The code provided bears the hallmarks of corruption and can be
-                  reconstructed to a code that is found in the release.
-                  </p><p>The reconstructed code and corresponding term are shown in the right hand columns.
-                </p>
+                <td>
+                  <p>
+                    The code provided bears the hallmarks of corruption and can
+                    be reconstructed to a code that is found in the release.
+                  </p>
+                  <p>
+                    The reconstructed code and corresponding term are shown in
+                    the right hand columns.
+                  </p>
                 </td>
               </tr>
               <tr>
                 <td>
                   <img src={true_false_icons[true]} width="20px" alt=""></img>
                 </td>
-                <td>
-                  
-                </td>
-                <td>
-                  The code is not corrupted
-                </td>
+                <td></td>
+                <td>The code is not corrupted</td>
               </tr>
             </tbody>
           </Table>
@@ -368,71 +369,70 @@ export default function HelpPanel({setEnteredData}) {
             </tbody>
           </Table>
         </Row>
-                  <p className="p_help pt">
-            Using the "Lines to show:" checkboxes you can choose which selection
-            of lines from the input data are shown:
-          </p>
-          <Row>
-            {/*  */}
-            {/* table: Lines to show radio checkboxes */}
-            {/*  */}
-            <Table striped bordered className="smaller_font">
-              <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
-                <tr>
-                  <td style={{ borderWidth: 3 }}> Checkbox</td>
-                  <td style={{ borderWidth: 3 }}> Explanation</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>All</td>
-                  <td>Show all lines</td>
-                </tr>
-                <tr>
-                  <td>Only corrupted</td>
-                  <td>
-                    <p className="p_help">
-                      These are lines where it is fairly likely that corruption
-                      has occurred: the tell-tale pattern of trailing zeroes is
-                      present and the code can be reconstructed as a code in the
-                      release.
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Only corrupted (show silent)</td>
-                  <td>
-                    <p className="p_help">
-                      This is like "Only corrupted", however silent corruptions
-                      are also shown. "Silent corruptions" are where the entered
-                      code has the particular pattern of trailing zeroes such
-                      that any "corruption" by Excel leads back to the original
-                      code.
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Only invalid</td>
-                  <td>
-                    <p className="p_help">
-                      This shows all lines that do not conform to the pattern
-                      for a valid SNOMED CT code. This will include all codes
-                      shown under "Only corrupted", but also codes that may have
-                      been corrupted but cannot be restored and also codes that
-                      are for other reasons.
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
-          </Row>
-          {/* <p className="p_help pt">
+        <p className="p_help pt">
+          Using the "Lines to show:" checkboxes you can choose which selection
+          of lines from the input data are shown:
+        </p>
+        <Row>
+          {/*  */}
+          {/* table: Lines to show radio checkboxes */}
+          {/*  */}
+          <Table striped bordered className="smaller_font">
+            <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
+              <tr>
+                <td style={{ borderWidth: 3 }}> Checkbox</td>
+                <td style={{ borderWidth: 3 }}> Explanation</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>All</td>
+                <td>Show all lines</td>
+              </tr>
+              <tr>
+                <td>Only corrupted</td>
+                <td>
+                  <p className="p_help">
+                    These are lines where it is fairly likely that corruption
+                    has occurred: the tell-tale pattern of trailing zeroes is
+                    present and the code can be reconstructed as a code in the
+                    release.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>Only corrupted (show silent)</td>
+                <td>
+                  <p className="p_help">
+                    This is like "Only corrupted", however silent corruptions
+                    are also shown. "Silent corruptions" are where the entered
+                    code has the particular pattern of trailing zeroes such that
+                    any "corruption" by Excel leads back to the original code.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>Only invalid</td>
+                <td>
+                  <p className="p_help">
+                    This shows all lines that do not conform to the pattern for
+                    a valid SNOMED CT code. This will include all codes shown
+                    under "Only corrupted", but also codes that may have been
+                    corrupted but cannot be restored and also codes that are
+                    invalid for other reasons.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </Table>
+        </Row>
+        {/* <p className="p_help pt">
             A further checkbox allows an extra column to be shown:
           </p> */}
-          {/*  */}
-          {/* table: show rest of line checkboxes */}
-          {/*  */}
-          {/* <Table striped bordered className="smaller_font">
+        {/*  */}
+        {/* table: show rest of line checkboxes */}
+        {/*  */}
+        {/* <Table striped bordered className="smaller_font">
               <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
                 <tr>
                   <th style={{ borderWidth: 3 }}> Checkbox</th>
@@ -449,14 +449,14 @@ export default function HelpPanel({setEnteredData}) {
                     facilitates comparison with the reconstructed terms.
                   </td>
                 </tr> */}
-          {/* <tr>
+        {/* <tr>
                     <td>Show explanations</td>
                     <td>
                       This adds a column to the Status column, that provides a
                       brief reminder of the meaning of the icon.
                     </td>
                   </tr> */}
-          {/* </tbody>
+        {/* </tbody>
             </Table> */}
       </Card.Body>
     </Card>
