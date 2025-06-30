@@ -5,7 +5,7 @@ import { Row, Col } from "react-bootstrap";
 
 import "./App.css";
 
-import UnmanglerCombo from "./components/unmangler_combo";
+import PanelCombo from "./components/panel_combo";
 import TermsModal from "./components/ts_and_cs";
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
         />
         <Row style={{ height: "95vh" }}>
           <Col xs={12}>
-            <UnmanglerCombo
+            <PanelCombo
               enteredData={enteredData}
               setEnteredData={setEnteredData}
               ignoreDescriptions={ignoreDescriptions}

@@ -1,12 +1,13 @@
 import { useRef } from "react";
 import { Card, Container, Col, Row, Button } from "react-bootstrap";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
+
 import DataEntryPanel from "./data_entry_panel";
 import HelpPanel from "./help_panel";
 import ResultsPanel from "./results_panel";
 import SnomedVersion from "./snomed_version";
 
-export default function UnmanglerCombo({
+export default function PanelCombo({
   ignoreDescriptions,
   setIgnoreDescriptions,
   analysisResults,
@@ -24,9 +25,9 @@ export default function UnmanglerCombo({
   };
 
   const reset_ts_and_cs = () => {
-    // localStorage.removeItem("terms_accepted");
-    setTermsAccepted(false)
+    setTermsAccepted(false);
   };
+
   return (
     <Container fluid>
       <Card className="myapp_card" style={{ height: "90vh" }}>
@@ -37,35 +38,40 @@ export default function UnmanglerCombo({
               <SnomedVersion
                 analysisResults={analysisResults}
                 setAnalysisResults={setAnalysisResults}
-              >
-              </SnomedVersion>
+              ></SnomedVersion>
             </Col>
             <Col className="col-3">
-              <Button variant="secondary" style={{ padding: "2px" }} onClick={resetPanels}>
+              <Button
+                variant="secondary"
+                style={{ padding: "2px" }}
+                onClick={resetPanels}
+              >
                 Reset Panel Sizes
               </Button>
-              <Button variant="secondary" style={{ padding: "2px", marginLeft: "20px" }} onClick={reset_ts_and_cs}>
+              <Button
+                variant="secondary"
+                style={{ padding: "2px", marginLeft: "20px" }}
+                onClick={reset_ts_and_cs}
+              >
                 T+Cs
               </Button>
-              <Button href="mailto:setchecks@jeremycraven.org.uk" target="#"  variant="secondary" style={{ padding: "2px", marginLeft: "20px" }} >
+              <Button
+                href="mailto:setchecks@jeremycraven.org.uk"
+                target="#"
+                variant="secondary"
+                style={{ padding: "2px", marginLeft: "20px" }}
+              >
                 Feedback
               </Button>
             </Col>
           </Row>
         </Card.Header>
         <Card.Body>
-          <PanelGroup
-            autoSaveId="example"
-            direction="horizontal"
-            ref={panelGroupRef}
-          >
+          <PanelGroup direction="horizontal" ref={panelGroupRef}>
             <Panel defaultSize={20}>
-              <HelpPanel setEnteredData={setEnteredData}
-              />
+              <HelpPanel setEnteredData={setEnteredData} />
             </Panel>
-            <PanelResizeHandle
-              style={{ width: "5px", backgroundColor: "grey" }}
-            />
+            <PanelResizeHandle className="panel_handle" />
             <Panel defaultSize={30}>
               <DataEntryPanel
                 ignoreDescriptions={ignoreDescriptions}
@@ -77,9 +83,7 @@ export default function UnmanglerCombo({
                 setInputsAsRun={setInputsAsRun}
               />
             </Panel>
-            <PanelResizeHandle
-              style={{ width: "5px", backgroundColor: "grey" }}
-            />
+            <PanelResizeHandle className="panel_handle" />
             <Panel defaultSize={30}>
               <ResultsPanel
                 ignoreDescriptions={ignoreDescriptions}

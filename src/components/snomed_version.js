@@ -4,6 +4,9 @@ import { Card, Form, Button, Row, Col } from "react-bootstrap";
 
 export default function SnomedVersion({ analysisResults, setAnalysisResults }) {
   
+  // this is a bit inelegant as stores the snomed release in otherwise empty
+  // analysisResults when the app is laoded; thereafter the snomed_release
+  // value is returned by calls to "/receive_entered_data"
   useEffect(() => {
     fetch(import.meta.env.VITE_API_URL + "/snomed_release", {
       method: "get",
@@ -14,11 +17,9 @@ export default function SnomedVersion({ analysisResults, setAnalysisResults }) {
       });
   }, []);
 
-  // console.log("snomed_release:", snomed_release);
   return (
     <>
       UK Monolith Edition: {analysisResults.metadata.snomed_release}
-      {/* snomed version to be implemented */}
     </>
   );
 }

@@ -9,7 +9,6 @@ export default function DataEntryPanel({
   inputsAsRun,
   setInputsAsRun,
 }) {
-
   function IgnoreDescriptionSwitch() {
     function handleClick(event) {
       setIgnoreDescriptions(event.target.checked);
@@ -53,7 +52,7 @@ export default function DataEntryPanel({
   }
 
   return (
-    <Card className="myapp_card" >
+    <Card className="myapp_card">
       <Card.Header className="myapp_card_header_2">Data Entry</Card.Header>
       <Card.Body>
         <Row style={{ padding: "10px" }}>
@@ -76,25 +75,23 @@ export default function DataEntryPanel({
           </Col>
         </Row>
         <Form>
-          {/* <Form.Group className="mb-3"> */}
-            <Form.Control
-              as="textarea"
-              className="smaller_font"
-              rows={25}
-              // important that next line formatted with explicit linebreak
-              // so that get line break in textarea
-              placeholder="Enter/paste data here
+          <Form.Control
+            as="textarea"
+            className="smaller_font"
+            rows={25}
+            // important that next line formatted with explicit linebreak
+            // so that get line break in textarea
+            placeholder="Enter/paste data here
 (or select an example data set)"
-              value={enteredData}
-              onChange={data_entered_function}
-              style={{
-                borderWidth: "5px",
-                fontFamily: "monospace",
-                whiteSpace: "pre",
-                tabSize: 20,
-              }}
-            />
-          {/* </Form.Group> */}
+            value={enteredData}
+            onChange={data_entered_function}
+            style={{
+              borderWidth: "5px",
+              fontFamily: "monospace",
+              whiteSpace: "pre",
+              tabSize: 20,
+            }}
+          />
         </Form>
       </Card.Body>
     </Card>

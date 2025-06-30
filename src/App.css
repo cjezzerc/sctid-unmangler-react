@@ -21,6 +21,11 @@
   font-weight: bold;
 }
 
+.panel_handle {
+  width: 5px;
+  background-color: grey;
+}
+
 .myapp_button {
   border-width: 3px !important;
   border-color: gray !important;
