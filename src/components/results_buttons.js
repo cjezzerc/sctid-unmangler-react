@@ -64,57 +64,9 @@ function ConceptsToShowButtons({ setFlags, flags, inputsAsRun }) {
   );
 }
 
-export function RestOfLineSwitch({ setFlags, flags }) {
-  function handleClick(event) {
-    setFlags({ ...flags, show_rest_of_line: event.target.checked });
-  }
-
-  return (
-    <Form.Check
-      type="checkbox"
-      id="switch-rest-of-line"
-      label="Show rest of each input line"
-      defaultChecked={flags.show_rest_of_line}
-      onClick={handleClick}
-    />
-  );
-}
-
-export function ExplanationSwitch({ setFlags, flags }) {
-  function handleClick(event) {
-    setFlags({ ...flags, show_explanation: event.target.checked });
-  }
-
-  return (
-    <Form.Check
-      type="checkbox"
-      id="switch-explanation"
-      label="Show explanations"
-      defaultChecked={flags.show_explanation}
-      onClick={handleClick}
-    />
-  );
-}
-
-// export function RefreshRequiredMessage({
-//   inputsAsRun,
-//   ignoreDescriptions,
-//   enteredData,
-// }) {
-//   if (
-//     ignoreDescriptions != inputsAsRun.ignoreDescriptions ||
-//     enteredData != inputsAsRun.enteredData
-//   ) {
-//     return <span style={{display:"inline"}}> Click "Check codes" to refresh </span>;
-//   }
-// }
-
 export function ResultsButtons({
   setFlags,
   flags,
-  inputsAsRun,
-  ignoreDescriptions,
-  enteredData
 }) {
   return (
     <Form>
@@ -127,20 +79,6 @@ export function ResultsButtons({
         </Col>
         </Row><Row>
         <Col xs="auto">
-          {/* <RestOfLineSwitch
-            setFlags={setFlags}
-            flags={flags}
-          ></RestOfLineSwitch>
-          <Col xs="auto"></Col> */}
-          {/* <ExplanationSwitch
-            setFlags={setFlags}
-            flags={flags}
-          ></ExplanationSwitch> */}
-          {/* <RefreshRequiredMessage
-            inputsAsRun={inputsAsRun}
-            ignoreDescriptions={ignoreDescriptions}
-            enteredData={enteredData}
-          ></RefreshRequiredMessage> */}
         </Col>
       </Row>
     </Form>

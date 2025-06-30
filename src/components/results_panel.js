@@ -1,6 +1,6 @@
 import { useState } from "react";
-
 import { Card, Table, Row, Col } from "react-bootstrap";
+
 import { ResultsButtons } from "./results_buttons";
 import { status_icons, true_false_icons } from "../utils/outcome_icons";
 import { RefreshRequiredMessage } from "./refresh_required_message";
@@ -11,12 +11,14 @@ export default function ResultsPanel({
   enteredData,
   inputsAsRun,
 }) {
+  
   const [flags, setFlags] = useState({
     show_rest_of_line: true,
     only_show_mangled: false,
     show_explanation: false,
     concepts_to_show: "all", // "all"|"invalid"|"mangled"|"mangled_non_silent"
   });
+
   const yes_no = { true: "YES!", false: "N" };
 
   const table_results_data = analysisResults.check_results.map((data) => {
@@ -46,7 +48,9 @@ export default function ResultsPanel({
               <u>{data.corruption_analysis.sctid_provided_trailing_zeroes}</u>
             </b>
           </td>
+
           {flags.show_rest_of_line && <td>{data.other_data.rest_of_line}</td>}
+
           <td>
             <img
               src={true_false_icons[data.corruption_analysis.validity]}
@@ -62,15 +66,11 @@ export default function ResultsPanel({
               alt=""
             />
           </td>
+
           {flags.show_explanation && (
-            <td>
-              {data.corruption_analysis.outcome_code.value}
-              {/* {data.corruption_analysis.outcome_code.replace(
-                "OutcomeCodes.",
-                ""
-              )} */}
-            </td>
+            <td>{data.corruption_analysis.outcome_code.value}</td>
           )}
+
           <td>
             {data.corruption_analysis.r_cid_stem}
             <b>
@@ -87,6 +87,7 @@ export default function ResultsPanel({
               </b>
             </td>
           )}
+
           {!inputsAsRun.ignoreDescriptions && (
             <td>{data.corruption_analysis.r_did_term}</td>
           )}
@@ -98,37 +99,43 @@ export default function ResultsPanel({
   const table_headers = (() => (
     <tr>
       <th>Code(Id)</th>
+
       {flags.show_rest_of_line && <th>Rest of line</th>}
+
       <th>Valid format code?</th>
+
       <th>Reconstruction Status</th>
+
       {flags.show_explanation && <th>Explanation</th>}
+
       <th>Reconstructed Concept&nbsp;Id</th>
+
       <th>Reconstructed Concept Preferred Term</th>
-      {!inputsAsRun.ignoreDescriptions && <th>Reconstructed Description&nbsp;Id</th>}
-      {!inputsAsRun.ignoreDescriptions && <th> Reconstructed Description Term</th>}
+
+      {!inputsAsRun.ignoreDescriptions && (
+        <th>Reconstructed Description&nbsp;Id</th>
+      )}
+
+      {!inputsAsRun.ignoreDescriptions && (
+        <th> Reconstructed Description Term</th>
+      )}
     </tr>
   ))();
 
   return (
     <Card className="myapp_card">
-      <Card.Header className="myapp_card_header_2">Analysis
+      <Card.Header className="myapp_card_header_2">
+        Analysis
         <RefreshRequiredMessage
-            inputsAsRun={inputsAsRun}
-            ignoreDescriptions={ignoreDescriptions}
-            enteredData={enteredData}
-          ></RefreshRequiredMessage>
+          inputsAsRun={inputsAsRun}
+          ignoreDescriptions={ignoreDescriptions}
+          enteredData={enteredData}
+        ></RefreshRequiredMessage>
       </Card.Header>
       <Card.Body>
         <Row className="align-items-center" style={{ margin: "3px" }}>
-          <ResultsButtons
-            setFlags={setFlags}
-            flags={flags}
-            enteredData={enteredData}
-            inputsAsRun={inputsAsRun}
-            ignoreDescriptions={ignoreDescriptions}
-          ></ResultsButtons>
+          <ResultsButtons setFlags={setFlags} flags={flags}></ResultsButtons>
         </Row>
-
         <Row>
           <div className="tableFixHead">
             <Table striped bordered className="smaller_font">
