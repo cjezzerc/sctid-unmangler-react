@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-import { Card, Form, Button, Row, Col } from "react-bootstrap";
-
 export default function SnomedVersion({ analysisResults, setAnalysisResults }) {
   
   // this is a bit inelegant as stores the snomed release in otherwise empty

@@ -3,12 +3,12 @@ import { Modal, Button } from "react-bootstrap";
 
 export default function TermsModal({termsAccepted, setTermsAccepted}) {
   
-  // For now make every reload force accpetance of ts and cs in case change things
+  // For now make every reload force acceptance of ts and cs in case change things
   // and to facilitate redisplaying it
 
   // commented out code shows how to store result in localstorage instead
 
-  // const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false); // use this in Modal
 
   // useEffect(() => {
   //   const accepted = localStorage.getItem("accepted_terms");
@@ -22,21 +22,12 @@ export default function TermsModal({termsAccepted, setTermsAccepted}) {
   };
 
   return (
-    // <Modal show={show} backdrop="static" keyboard={false} size="xl">
     <Modal show={!termsAccepted} fullscreen={true} backdrop="static" keyboard={false} size="xl">
       <Modal.Header>
         <Modal.Title>Terms and Conditions for Code-Restorer</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-
-        {/* <h1 style={{fontSize:"2em"}}>Scope</h1> */}
-        {/* <p>
-          This application is limited to allowing a user to upload a value set,
-          and providing an outcome report, based on a range of 13 pre-defined
-          Set Checks.
-        </p> */}
         <p style={{color:"#ee0000", fontWeight: "bold"}}>
-        {/* <p style="color:#EE0000; font-weight: bold;"> */}
           IMPORTANT: All outputs should be reviewed and approved by relevantly
           qualified clinical professionals before changes are made to any value
           set (or other data) being used to record or assess care data.
@@ -56,14 +47,6 @@ export default function TermsModal({termsAccepted, setTermsAccepted}) {
           <i> Where codes provided are already valid no such checking is done. </i>
         </li>
         <li> No analysis is made of whether any codes are active or inactive</li>
-        {/* <p>
-          The application is running on restricted cloud resources, and as such
-          the performance of the tool to handle multiple simultaneous users is
-          an important aspect of evaluating this implementation. This
-          application places a limit on the size of an uploaded file (currently
-          3000 concepts). Files towards the upper end of this range may impact
-          the performance of the tool.
-        </p> */}
         </ul>
         <h2 >Licencing</h2>
         <p>

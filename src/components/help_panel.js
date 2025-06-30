@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { Card, Row, Table } from "react-bootstrap";
 
-import { Card, Form, Button, Row, Col, Table } from "react-bootstrap";
-
-import { status_icons, true_false_icons } from "../utils/outcome_icons";
+import { ExampleDatasetSelector } from "./example_dataset_selector";
 
 import code_restorer_banner from "../assets/code_restorer_banner.png";
 const ximg = code_restorer_banner;
+
 import icon_pcu_url from "../assets/possible_corruption_unambig.svg?url";
 const icon_pcu_url_img = icon_pcu_url;
-import { ExampleDatasetSelector } from "./example_dataset_selector";
+
+import { status_icons, true_false_icons } from "../utils/outcome_icons";
 
 export default function HelpPanel({ setEnteredData }) {
   return (
@@ -26,11 +26,18 @@ export default function HelpPanel({ setEnteredData }) {
       ></img>
       <Card.Body style={{ overflow: "auto" }}>
         <Row>
+          {/*  */}
+          {/* Preamble */}
+          {/*  */}
           <p style={{ fontStyle: "italic" }}>
             Have your SNOMED CT codes lost a certain something - are there
             zeroes where there used to be other digits? Code-Restorer can mend
             your codes that have been corrupted by Excel!
           </p>
+
+          {/*  */}
+          {/* QuickStart */}
+          {/*  */}
           <h1>QuickStart</h1>
           <ul style={{ marginLeft: "0.75rem", textAlign: "left" }}>
             <li>Select "Simple data" from this menu </li>
@@ -53,6 +60,7 @@ export default function HelpPanel({ setEnteredData }) {
               are examples of codes that have been corrupted and restored.
             </li>
           </ul>
+
           {/*  */}
           {/* How to load in your data */}
           {/*  */}
@@ -65,8 +73,8 @@ export default function HelpPanel({ setEnteredData }) {
             Each line of entered data can contain extra text after the code. If
             you have terms (i.e. human readable representations) in your entered
             data this can be useful so that you can compare any reconstructed
-            code's term. Any extra text after the code is reproduced
-            in the "Rest of line" column in the Analysis table.
+            code's term. Any extra text after the code is reproduced in the
+            "Rest of line" column in the Analysis table.
           </p>
           <p className="p_help">
             The app uses white space, tab characters or the "|" symbol to mark
@@ -74,10 +82,7 @@ export default function HelpPanel({ setEnteredData }) {
             as should entering data in the form such as <br />
             <pre> 125605004|Fracture of bone (disorder)|</pre>
           </p>
-          {/* <p className="p_help">
-            The example data button will load in a set of data that shows
-            various possibilities.
-          </p> */}
+
           {/*  */}
           {/* How to run the check */}
           {/*  */}
@@ -93,8 +98,8 @@ export default function HelpPanel({ setEnteredData }) {
           <Table striped bordered className="smaller_font">
             <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
               <tr>
-                <td style={{ borderWidth: 3 }}> Checkbox</td>
-                <td style={{ borderWidth: 3 }}> Explanation</td>
+                <th style={{ borderWidth: 3 }}> Checkbox</th>
+                <th style={{ borderWidth: 3 }}> Explanation</th>
               </tr>
             </thead>
             <tbody>
@@ -141,15 +146,12 @@ export default function HelpPanel({ setEnteredData }) {
           <Table striped bordered className="smaller_font">
             <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
               <tr>
-                <td style={{ borderWidth: 3 }}> Valid format code?</td>
-                <td style={{ borderWidth: 3 }}> Reconstruction Status</td>
-                <td style={{ borderWidth: 3 }}> Explanation</td>
+                <th style={{ borderWidth: 3 }}> Valid format code?</th>
+                <th style={{ borderWidth: 3 }}> Reconstruction Status</th>
+                <th style={{ borderWidth: 3 }}> Explanation</th>
               </tr>
             </thead>
             <tbody>
-              {/* possible_corruption_unambig */}
-
-              {/* any_corruption_is_silent */}
               <tr>
                 <td>
                   <img src={true_false_icons[false]} width="20px" alt=""></img>
@@ -187,20 +189,24 @@ export default function HelpPanel({ setEnteredData }) {
           <p className="p_help">
             The full list of Reconstructed Status icons is as follows:
           </p>
+
           {/*  */}
           {/* table: status icons */}
           {/*  */}
           <Table striped bordered className="smaller_font">
             <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
               <tr>
-                <td style={{ borderWidth: 3 }}> Reconstruction Status</td>
-                <td style={{ borderWidth: 3 }}> Brief name </td>
-                <td style={{ borderWidth: 3 }}> Explanation</td>
-                <td style={{ borderWidth: 3 }}> Suggested action</td>
+                <th style={{ borderWidth: 3 }}> Reconstruction Status</th>
+                <th style={{ borderWidth: 3 }}> Brief name </th>
+                <th style={{ borderWidth: 3 }}> Explanation</th>
+                <th style={{ borderWidth: 3 }}> Suggested action</th>
               </tr>
             </thead>
             <tbody>
-              {/* possible_corruption_unambig */}
+
+              {/*  */}
+              {/* possible_corruption unambig */}
+              {/*  */}
               <tr>
                 <td>
                   <img
@@ -221,7 +227,10 @@ export default function HelpPanel({ setEnteredData }) {
                   reconstructed Id in your data.
                 </td>
               </tr>
+
+              {/*  */}
               {/* any_corruption_is_silent */}
+              {/*  */}
               <tr>
                 <td>
                   <img
@@ -238,7 +247,10 @@ export default function HelpPanel({ setEnteredData }) {
                 </td>
                 <td>No action required - the code appears to be OK.</td>
               </tr>
+
+              {/*  */}
               {/* no_reconstructions_exist */}
+              {/*  */}
               <tr>
                 <td>
                   <img
@@ -248,7 +260,6 @@ export default function HelpPanel({ setEnteredData }) {
                   ></img>
                 </td>
                 <td>Not reconstructable</td>
-
                 <td>
                   The code provided is invalid and bears the hallmarks of
                   corruption, but the reconstructed code(s) are not found in the
@@ -256,7 +267,10 @@ export default function HelpPanel({ setEnteredData }) {
                 </td>
                 <td>Further investigation required.</td>
               </tr>
+
+              {/*  */}
               {/* possible_corruption_ambig */}
+              {/*  */}
               <tr>
                 <td>
                   <img
@@ -266,7 +280,6 @@ export default function HelpPanel({ setEnteredData }) {
                   ></img>
                 </td>
                 <td>Ambiguous</td>
-
                 <td>
                   This is similar to
                   <img
@@ -285,7 +298,10 @@ export default function HelpPanel({ setEnteredData }) {
                   intended and use that reconstructed Id in your data.
                 </td>
               </tr>
+
+              {/*  */}
               {/* ambig_could_be_silent */}
+              {/*  */}
               <tr>
                 <td>
                   <img
@@ -295,7 +311,6 @@ export default function HelpPanel({ setEnteredData }) {
                   ></img>
                 </td>
                 <td>Ambiguous/Silent</td>
-
                 <td>
                   This is a combination of
                   <img
@@ -321,6 +336,7 @@ export default function HelpPanel({ setEnteredData }) {
                   required.
                 </td>
               </tr>
+
             </tbody>
           </Table>
           <p className="p_help">
@@ -333,8 +349,8 @@ export default function HelpPanel({ setEnteredData }) {
           <Table striped bordered className="smaller_font">
             <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
               <tr>
-                <td style={{ borderWidth: 3 }}> Status</td>
-                <td style={{ borderWidth: 3 }}> Explanation</td>
+                <th style={{ borderWidth: 3 }}> Status</th>
+                <th style={{ borderWidth: 3 }}> Explanation</th>
               </tr>
             </thead>
             <tbody>
@@ -343,7 +359,6 @@ export default function HelpPanel({ setEnteredData }) {
                 <td>
                   <img src={true_false_icons[true]} width=" 20px" alt=""></img>
                 </td>
-
                 <td>
                   <p className="p_help">
                     This code is in valid SNOMED format. The app does not
@@ -381,8 +396,8 @@ export default function HelpPanel({ setEnteredData }) {
           <Table striped bordered className="smaller_font">
             <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
               <tr>
-                <td style={{ borderWidth: 3 }}> Checkbox</td>
-                <td style={{ borderWidth: 3 }}> Explanation</td>
+                <th style={{ borderWidth: 3 }}> Checkbox</th>
+                <th style={{ borderWidth: 3 }}> Explanation</th>
               </tr>
             </thead>
             <tbody>
@@ -427,38 +442,7 @@ export default function HelpPanel({ setEnteredData }) {
             </tbody>
           </Table>
         </Row>
-        {/* <p className="p_help pt">
-            A further checkbox allows an extra column to be shown:
-          </p> */}
-        {/*  */}
-        {/* table: show rest of line checkboxes */}
-        {/*  */}
-        {/* <Table striped bordered className="smaller_font">
-              <thead style={{ fontWeight: "bold", borderWidth: 1 }}>
-                <tr>
-                  <th style={{ borderWidth: 3 }}> Checkbox</th>
-                  <th style={{ borderWidth: 3 }}> Explanation</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Show rest of each input line</td>
-                  <td>
-                    This adds a column next to the Code column, showing the rest
-                    of the text entered on the input line in addition to the
-                    code. If terms have been entered alongside the codes this
-                    facilitates comparison with the reconstructed terms.
-                  </td>
-                </tr> */}
-        {/* <tr>
-                    <td>Show explanations</td>
-                    <td>
-                      This adds a column to the Status column, that provides a
-                      brief reminder of the meaning of the icon.
-                    </td>
-                  </tr> */}
-        {/* </tbody>
-            </Table> */}
+     
       </Card.Body>
     </Card>
   );
