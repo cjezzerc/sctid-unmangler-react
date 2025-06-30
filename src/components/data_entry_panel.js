@@ -53,7 +53,7 @@ export default function DataEntryPanel({
   }
 
   return (
-    <Card className="myapp_card" style={{ height: "82vh", overflow: "auto" }}>
+    <Card className="myapp_card" >
       <Card.Header className="myapp_card_header_2">Data Entry</Card.Header>
       <Card.Body>
         <Row style={{ padding: "10px" }}>
@@ -70,14 +70,13 @@ export default function DataEntryPanel({
               Check codes
             </Button>
           </Col>
-
           <Col xs="auto" className="align-self-center">
             <IgnoreDescriptionSwitch></IgnoreDescriptionSwitch>
             {/* </div> */}
           </Col>
         </Row>
         <Form>
-          <Form.Group className="mb-3">
+          {/* <Form.Group className="mb-3"> */}
             <Form.Control
               as="textarea"
               className="smaller_font"
@@ -95,7 +94,7 @@ export default function DataEntryPanel({
                 tabSize: 20,
               }}
             />
-          </Form.Group>
+          {/* </Form.Group> */}
         </Form>
       </Card.Body>
     </Card>

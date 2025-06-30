@@ -12,7 +12,7 @@ import { ExampleDatasetSelector } from "./example_dataset_selector";
 
 export default function HelpPanel({ setEnteredData }) {
   return (
-    <Card className="myapp_card" style={{ height: "82vh" }}>
+    <Card className="myapp_card">
       <Card.Header className="myapp_card_header_2">Help</Card.Header>
       <img
         src={ximg}

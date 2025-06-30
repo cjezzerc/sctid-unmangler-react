@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+.card.myapp_card {
+  height: 82vh;
+  overflow: auto;
+}
+
 .card-header.myapp_card_header {
   background-color: #5b5b5b;
   font-weight: bold;
@@ -16,11 +21,6 @@
   font-weight: bold;
 }
 
-.card-body.myapp_card_body {
-  background-color: lightgray;
-  padding: 0;
-}
-
 .myapp_button {
   border-width: 3px !important;
   border-color: gray !important;
@@ -29,6 +29,10 @@
   margin-right: 0px !important;
   background-color: green !important;
   color: white !important;
+}
+
+.myapp_button:hover {
+  background-color: darkgreen !important;
 }
 
 .myapp_button:disabled {
@@ -56,14 +60,14 @@
 }
 
 .tableFixHead {
-  overflow: auto ;
-  height: 60vh ;
+  overflow: auto;
+  height: 60vh;
 }
 
 .tableFixHead thead th {
-  position: sticky ;
-  top: 0 ;
-  z-index: 1 ;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 h1 {
@@ -78,9 +82,6 @@ h1 {
 }
 
 .modal-dialog h2 {
-  font-size: 1.25rem; 
+  font-size: 1.25rem;
   font-weight: bold;
 }
-
-
-
