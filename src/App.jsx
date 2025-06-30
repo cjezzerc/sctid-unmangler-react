@@ -9,6 +9,7 @@ import PanelCombo from "./components/panel_combo";
 import TermsModal from "./components/ts_and_cs";
 
 function App() {
+
   const [enteredData, setEnteredData] = useState("");
   const [ignoreDescriptions, setIgnoreDescriptions] = useState(true);
   const [inputsAsRun, setInputsAsRun] = useState({
