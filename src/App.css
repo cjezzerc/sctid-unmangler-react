@@ -40,46 +40,9 @@
   border-width: 3px;
 }
 
-.setchks-big-green-btn {
-  display: inline-block;
-  cursor: pointer;
-  width: auto;
-  height: auto;
-  padding: 1vh 1vh;
-  margin: 1vh;
-  font-size: 2em;
-  font-weight: bold;
-  line-height: 2em;
-  text-align: left;
-  color: white !important;
-  border-style: solid;
-  border-width: 3px !important;
-  border-color: gray !important;
-  background-color: green !important;
-  border-radius: 10px !important;
-}
-
-.setchks-big-green-btn:hover {
-  background-color: #005e00 !important;
-}
-
 .smaller_font {
   font-size: 0.8em !important;
 }
-
-.much_smaller_font {
-  font-size: 0.6em !important;
-}
-
-.tableContainer {
-  height: 60vh;
-  overflow: auto;
-}
-
-/* .dropdown-item {
-  color:red !important;
-  background-color: gray !important;
-} */
 
 .dropdown-toggle {
   color: black !important;
@@ -112,15 +75,6 @@ h1 {
 
 .p_help {
   text-align: left;
-}
-
-.tcmodal {
-  width:1000px;
-  max-width: 1000px;
-}
-
-.tcmodal_h2 {
-  font-size: "0.2em"!important;
 }
 
 .modal-dialog h2 {
