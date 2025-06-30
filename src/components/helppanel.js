@@ -63,9 +63,10 @@ export default function HelpPanel({ setEnteredData }) {
           </p>
           <p className="p_help">
             Each line of entered data can contain extra text after the code. If
-            you have terms (i.e. descriptions) in your entered data this can be
-            useful so that you can compare the reconstructed code's preferred
-            term (see the "Rest of line" column in the Analysis table).
+            you have terms (i.e. human readable representations) in your entered
+            data this can be useful so that you can compare any reconstructed
+            code's term. Any extra text after the code is reproduced
+            in the "Rest of line" column in the Analysis table.
           </p>
           <p className="p_help">
             The app uses white space, tab characters or the "|" symbol to mark
@@ -169,7 +170,7 @@ export default function HelpPanel({ setEnteredData }) {
                   </p>
                   <p>
                     The reconstructed code and corresponding term are shown in
-                    the right hand columns.
+                    the right hand columns of the analysis table.
                   </p>
                 </td>
               </tr>
@@ -276,7 +277,7 @@ export default function HelpPanel({ setEnteredData }) {
                     style={{ padding: "5px" }}
                     alt=""
                   ></img>
-                  but two reconstructions exists, one being a Concept Id and the
+                  but two reconstructions exist, one being a Concept Id and the
                   other being a Description Id.
                 </td>
                 <td>

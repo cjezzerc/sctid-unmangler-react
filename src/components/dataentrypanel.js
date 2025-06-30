@@ -107,8 +107,8 @@ export default function DataEntryPanel({
               Check codes
             </Button>
           </Col>
-          
-          <Col  xs="auto" className="align-self-center">
+
+          <Col xs="auto" className="align-self-center">
             <IgnoreDescriptionSwitch></IgnoreDescriptionSwitch>
             {/* </div> */}
           </Col>
@@ -136,7 +136,10 @@ export default function DataEntryPanel({
               as="textarea"
               className="smaller_font"
               rows={25}
-              placeholder="Enter/paste data here (or select an example data set from the dropdown in the Help panel)"
+              // important that next line formatted with explicit linebreak
+              // so that get line break in textarea
+              placeholder="Enter/paste data here
+(or select an example data set)"
               value={enteredData}
               // onChange={(event) => setEnteredData(event.target.value)}
               onChange={data_entered_function}
