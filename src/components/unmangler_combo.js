@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { Card, Container, Col, Row, Button } from "react-bootstrap";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
-import DataEntryPanel from "./dataentrypanel";
-import HelpPanel from "./helppanel";
-import ResultsPanel from "./resultspanel";
+import DataEntryPanel from "./data_entry_panel";
+import HelpPanel from "./help_panel";
+import ResultsPanel from "./results_panel";
 import SnomedVersion from "./snomed_version";
 
 export default function UnmanglerCombo({

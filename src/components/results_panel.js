@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import { Card, Table, Row, Col } from "react-bootstrap";
-import { ResultsButtons } from "./resultsbuttons";
-import { status_icons, true_false_icons } from "./outcome_icons";
+import { ResultsButtons } from "./results_buttons";
+import { status_icons, true_false_icons } from "../utils/outcome_icons";
 import { RefreshRequiredMessage } from "./refresh_required_message";
 
 export default function ResultsPanel({

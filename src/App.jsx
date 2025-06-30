@@ -5,7 +5,7 @@ import { Row, Col } from "react-bootstrap";
 
 import "./App.css";
 
-import UnmanglerCombo from "./components/unmanglercombo";
+import UnmanglerCombo from "./components/unmangler_combo";
 import TermsModal from "./components/ts_and_cs";
 
 function App() {

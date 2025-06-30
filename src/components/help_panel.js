@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Card, Form, Button, Row, Col, Table } from "react-bootstrap";
 
-import { status_icons, true_false_icons } from "./outcome_icons";
+import { status_icons, true_false_icons } from "../utils/outcome_icons";
 
 import code_restorer_banner from "../assets/code_restorer_banner.png";
 const ximg = code_restorer_banner;
