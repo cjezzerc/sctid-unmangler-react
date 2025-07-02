@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import {
   simple_data,
-  messy_data,
+  master_set_with_commentary,
   contact_dermatitis,
 } from "../example_data/example_data";
 
 const datasets = {
   dataset1: { name: 'Simple data', data: simple_data },
-  dataset2: { name: 'Messy data', data: messy_data },
-  dataset3: { name: 'Long data', data: contact_dermatitis },
+  dataset2: { name: 'Long data', data: contact_dermatitis },
+  dataset3: { name: 'Master set with commentary', data: master_set_with_commentary },
 };
 
 export function ExampleDatasetSelector({setEnteredData}) {
